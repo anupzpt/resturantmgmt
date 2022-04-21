@@ -8,6 +8,7 @@ namespace DMS.Controllers.Main
 {
     public class StaffController : Controller
     {
+        [AllowAnonymous]
         // GET: Staff
         public ActionResult Staff()
         {
