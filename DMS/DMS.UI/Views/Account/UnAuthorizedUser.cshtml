@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="">
+    <!-- start: PAGE HEADER -->
+    <!-- start: TOOLBAR -->
+    <div class="toolbar row">
+        <div class="col-sm-8 hidden-xs">
+            <div class="page-header">
+                <h1 class="col-sm-12">Authentication Message</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: TOOLBAR -->
+<!-- end: PAGE HEADER -->
+<!-- start: BREADCRUMB -->
+<div class="row">
+    @if (TempData["ErrMessage"] != null)
+    {
+        <div class="col-md-12 alert alert-danger">@TempData["ErrMessage"]</div>
+    }
+    @if (TempData["Message"] != null)
+    {
+        <div class="col-md-12 alert alert-success">@TempData["Message"]</div>
+    }
+    <div class="col-md-12">
+        <!-- start: FORM VALIDATION 1 PANEL -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-body text-center">
+                    <div class="col-md-4">
+                        <img src="~/Images/LoginImages/digital-identity-authentication-socure.jpg" class="img-responsive">
+                    </div>
+                    <div class="col-md-8">
+                        <h1>This page is Unauthorized!</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end: PAGE CONTENT-->
+</div>
+</div>

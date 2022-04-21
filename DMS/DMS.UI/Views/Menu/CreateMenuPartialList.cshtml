@@ -1,0 +1,43 @@
+﻿@model DMS.UI.ViewModels.MenuListVM
+@using HtmlHelpers.BeginCollectionItem
+<tr>
+    @using (Html.BeginCollectionItem("menuCollection"))
+    {
+    @Html.HiddenFor(x => x.Title)
+        @Html.HiddenFor(x => x.ActionId)
+        @Html.HiddenFor(x => x._ControllerActionId)
+        @Html.HiddenFor(x => x.Description)
+        @Html.HiddenFor(x => x.IsActive)
+        @Html.HiddenFor(x => x.Position)
+        @Html.HiddenFor(x => x.ParentId)
+        @Html.HiddenFor(x => x.Area_id)
+        @Html.HiddenFor(x => x.MenuType)
+
+        //@Html.HiddenFor(x => x.cf31_menu_list_Section)
+        @Html.HiddenFor(x => x.DropDownName)
+        @Html.HiddenFor(x => x.IconName)
+        ///For Display
+        <td>@Html.DisplayFor(x => x.Title, new { htmlAttributes = new { @Id = "" } })</td>
+        <td>@Html.DisplayFor(x => x.ControllerName, new { htmlAttributes = new { @Id = "" } })</td>
+        <td>@Html.DisplayFor(x => x.ActionName, new { htmlAttributes = new { @Id = "" } })</td>
+        <td>@Html.DisplayFor(x => x.Description)</td>
+        <td>@Html.DisplayFor(x => x.Position)</td>
+        <td>@Html.DisplayFor(x => x.DropDownName)</td>
+        <td>@Html.DisplayFor(x => x.IconName)</td>
+        <td>@Html.DisplayFor(x => x.ParentId)</td>
+        <td>@Html.DisplayFor(x => x.Area_id)</td>
+        <td>@Html.DisplayFor(x => x.MenuType)</td>
+        <td>
+            @if (Model.IsActive)
+            {
+            <span class="label label-success">Active</span>
+
+            }
+            else
+            {
+            <span class="label label-danger">Active</span>
+            }
+        </td>
+        <td><input type="button" value="-" class="btn btn-danger removeList" /></td>
+    }
+</tr>

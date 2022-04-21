@@ -1,0 +1,11 @@
+﻿@model IEnumerable<DMS.UI.ViewModels.MenuListVM>
+@{
+    ViewBag.AllMenu = Model;
+    bool ShowStaticMenu = true;
+}
+
+@foreach (var item in Model.Where(x => x.ParentId == 0).OrderBy(x => x.Position))
+{
+    @Html.DisplayFor(x => item)
+}
+

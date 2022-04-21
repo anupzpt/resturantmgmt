@@ -1,0 +1,33 @@
+﻿    function getUrl(UrlCode)
+    {
+        var _app = { url: {} };
+        //general pages
+        _app.url['Error'] = '@Url.Action("Error", "Home")';
+
+        //admin Menu Section
+        _app.url['MenuActionByController'] = '@Url.Action("GetAllActionByController", "Menu")'; //"/Menu/GetAllActionByController/"
+        _app.url['MenuCreatePartialList'] = '@Url.Action("CreateMenuPartialList", "Menu")';
+        _app.url['UserRoleEditRoleWitMenu'] = '@Url.Action("EditRoleWitMenu", "UserRole")';
+        _app.url['ControllerActionSaveEdit'] = '@Url.Action("SaveEdit", "ControllerAction")';
+        _app.url['ControllerActionDisplayList'] = '@Url.Action("DisplayList", "ControllerAction")';
+        _app.url['UserRoleDisplayTreeMenusForRole'] = '@Url.Action("DisplayTreeMenusForRole", "UserRole")';
+        _app.url['UserRoleIndex'] = '@Url.Action("Index", "UserRole")';
+        _app.url['UserRoleManagementEditRoleWitMenu'] = '@Url.Action("EditRoleWitMenu", "UserRoleManagement")';
+        _app.url['UserRoleManagementIndex'] = '@Url.Action("Index", "UserRoleManagement")';
+
+
+        return _app.url[UrlCode];
+        }
+
+        var Config={
+        Url: {
+        DashboardAccno:'@Url.Action("SearchedData", "Home")',
+        GetServiceRequestDetail:'@Url.Action("CustomerDetails", "ServiceRequest")',
+        GetATMInfos:'@Url.Action("GetATMInfos", "ATMReconciliation")',
+        GetInstantCard:'@Url.Action("displayData", "InstantCardDepartment")',
+        DebitTransIDMinLength:'@ViewHelper.GetDebitTransIDMinLength()',
+        DebitTransIDMaxLength:'@ViewHelper.GetDebitTransIDMaxLength()',
+        GetTotalCardNoLength:'@ViewHelper.GetTotalCardNoLength()',
+        GetCardNoInitialDigitsLength:'@ViewHelper.GetCardNoInitialDigits().Length',
+        }
+        }

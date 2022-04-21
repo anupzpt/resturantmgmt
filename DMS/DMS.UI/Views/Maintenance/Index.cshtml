@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Maintenance";
+}
+
+<div class="container">
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1>
+                    Maintenance
+                </h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="toolbar-tools pull-right">
+                <ul class="nav navbar-right">
+                    <li class="back">
+                        <a href="@Url.Action("Dashboard","Home")">
+                            <i class="fa fa-chevron-left"></i>Back
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel panel-heading"></div>
+        <div class="panel-body">
+            @Html.Raw(FlashBag.showMessage())
+            <div class="form-group">
+                <h3 class="text-bold">1. Undelete/Activate deleted customer with active Account.</h3>
+                <h3 class="text-bold">2. Set customer to deleted status which is not last record as per CBS Cod</h3>
+                <h3 class="text-bold">3. Set customer to Active status which is\last record as per CBS Code</h3>
+            </div>
+            <div class="col-md-3">
+                <a data-toggle="modal" data-target="#MaintenanceModal" class="btn btn-success">
+                    <i class="fa fa-refresh">
+                    </i> Run Maintenance Code
+                </a>
+            </div>
+
+
+            <div class="container">
+                <div class="modal fade" id="MaintenanceModal" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        @using (Html.BeginForm("RunCustomerMaintenanceCode", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color:#ce181f">
+                                    <button type="button" class="close" style="padding:5px; border-radius:30px 30px;" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title" style="color:white">Run Customer Data Maintenance Code</h4>
+                                </div>
+                                <div class="modal-body">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success fa fa-check" style="margin:0 30px 0px 0px">Yes</button>
+                                    <button type="button" class="btn btn-danger fa fa-remove" data-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

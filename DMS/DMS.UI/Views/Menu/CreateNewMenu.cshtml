@@ -1,0 +1,198 @@
+﻿@model DMS.UI.ViewModels.MenuListVM
+
+@{
+    ViewBag.Title = "Create Menu :: Create";
+
+}
+<div class="">
+    <!-- start: PAGE HEADER -->
+    <!-- start: TOOLBAR -->
+    <!---->
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1 class="uc"> New Menu</h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <a href="#" class="back-subviews">
+                <i class="fa fa-chevron-left"></i> BACK
+            </a>
+            <a href="#" class="close-subviews">
+                <i class="fa fa-times"></i> CLOSE
+            </a>
+            <div class="toolbar-tools pull-right">
+                <!-- start: TOP NAVIGATION MENU -->
+                <ul class="nav navbar-right">
+                    <li class="back">
+                        <a href="@Url.Action("Index")">
+                            <i class="fa fa-chevron-left"></i> BACK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- end: TOOLBAR -->
+    <!-- end: PAGE HEADER -->
+    <!-- start: PAGE CONTENT -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- start: FORM VALIDATION 1 PANEL -->
+            <div class="">
+                <div class="panel-body">
+                    <div class="row">
+                        <!--wrapper-->
+                        <!--extra-->
+                        <div class="panel panel-primary">
+                            <div class="panel panel-heading"><h5 class="center">Add New Menu</h5></div>
+                            <div class="panel panel-body">
+                                <!--Body-->
+                                <!--Pnnel content-->
+                                @if (TempData["Message"] != null)
+                                {
+                                <p class="alert alert-info">@TempData["Message"]</p>
+                                }
+                                <p>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="checkbox" id="DropDownMenu" data-toggle="toggle" data-on="Yes" data-off="No">DropDown Menu ?
+                                </p>
+                                @using (Html.BeginForm("CreateNewMenu", "Menu", FormMethod.Post))
+                                {
+                                @Html.AntiForgeryToken()
+                                    <div class="row">
+                                        @*<div class="col-md-8">*@
+                                        <div class="col-md-12">
+                                            <table>
+                                                <tr>
+                                                    <th class="hideTh">Menu Title</th>
+                                                    <th class="hideTh">Controller</th>
+                                                    <th class="hideTh">Action</th>
+                                                    <th style="display:none" class="parentName">DropDown Name</th>
+                                                    <th>Icon</th>
+                                                    <th>Description</th>
+                                                    <th>Position</th>
+                                                    <th>Parent</th>
+                                                    <th>Area</th>
+                                                    <th>Menu Type</th>
+                                                    <th>IsActive</th>
+                                                </tr>
+                                                <tr>
+                                                    @Html.HiddenFor(x => x.IconName, new { @class = "Icon" })
+                                                    <td class="tdSize hideTh">@Html.EditorFor(x => x.Title, new { htmlAttributes = new { @class = "form-control", @id = "menuTitle" } })</td>
+                                                    <td class="tdSize hideTh">@Html.DropDownList("ControllerName", null, "<--Select Controller-->", htmlAttributes: new { @class = "form-control search-select", @id = "controllerId" })</td>
+                                                    <td class="tdSize hideTh"><select id="actionId" class="form-control drop"></select></td>
+                                                    <td style="display:none" class="parentName tdSize">@Html.EditorFor(x => x.DropDownName, new { htmlAttributes = new { @class = "form-control", @Id = "DropDownMenuName" } })</td>
+                                                    <td>
+                                                        <span class="input-group-btn glyphicon">
+                                                            <button class="btn btn-default iconpicker" type="button" id="iconSelect" name="" role="iconpicker" data-iconset="fontawesome" data-rows="3" data-cols="6" data-placement="left|top|bottom|right"></button>
+                                                        </span>
+                                                        @* <button type="button" class="btn btn-default" role="iconpicker" id="iconSelect"></button>*@
+                                                    </td>
+                                                    <td class="tdSize">@Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "form-control", @id = "descriptionMenu" } })</td>
+                                                    <td>@Html.EditorFor(x => x.Position, new { htmlAttributes = new { @class = "form-control", @Id = "positonMenu" } })</td>
+                                                    <td>@Html.DropDownList("ParentId", null, "<--Select Parent-->", new { @class = "form-control Drop", @id = "ParentId" })</td>
+                                                    <td>@Html.DropDownList("Area", null, "<--Select Area-->", new { @class = "form-control search-select", @id = "Area",@Name="Area_id" })</td>
+                                                    <td>@Html.DropDownList("MenuType", null, "<--Select Menu Type-->", new { @class = "form-control search-select", @id = "MenuType" })</td>
+                                                    <td>
+                                                        <input type="checkbox" class="btn-sm" id="statusMenu" name="Active" value="true" data-toggle="toggle" data-on="IsActive" data-off="InIsActive" @(Model != null && !Model.IsActive ? "" : "checked")>
+                                                    </td>
+                                                    <td><input type="button" class="btn btn-success " id="addMenu" value="+"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <table class="table table-striped" id="ShowTable" style="display:none">
+                                        <thead>
+                                            <tr>
+                                                <th>Menu Title</th>
+                                                <th>Controller</th>
+                                                <th>Action</th>
+                                                <th>Description</th>
+                                                <th>Position</th>
+                                                <th>DropDown Name</th>
+                                                <th>Icon Name</th>
+                                                <th>ParentId</th>
+                                                <th>Area</th>
+                                                <th>Menu Type</th>
+                                                <th>IsActive</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="addNewMenu"></tbody>
+                                    </table>
+                                    <br />
+                                    <div class="form-group" id="showButton" style="display:none">
+                                        <div class="col-md-offset-11 col-md-2">
+                                            <input type="button" id="SubmitButton" value="Create" class="btn btn-success btnForModal" />
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header" style="background-color:#ce181f">
+                                                        <button type="button" class="close" style="padding:5px; border-radius:30px 30px;" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title" style="color:white">Are you Sure!</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <p>Do you want to <span id="msg">Submit</span>?</p>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" value="Yes" id="ModalSubmitButton" class="btn btn-primary fa fa-check" style="margin:0 30px 0px 0px">Yes</button>
+                                                        <button type="button" value="No" id="No" class="btn btn-danger fa fa-remove" data-dismiss="modal">No</button>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <!--End Body-->
+                            </div>
+                        </div>
+                        <!--wrapper row ends-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="~/Scripts/IconPicker/bootstrap-iconpicker-iconset-all.min.js"></script>
+    <script src="~/Scripts/IconPicker/bootstrap-iconpicker.min.js"></script>
+    <script src="@Url.Content("~/Scripts/Menu/admin_menu.js")"></script>
+    <script type="text/javascript">
+
+
+
+
+        // Using javascript
+        $(document).ready(function () {
+
+
+            $('.iconpicker').iconpicker({
+                iconset: 'fontawesome',
+                icon: 'fa-key',
+                rows: 5,
+                cols: 5,
+                placement: 'top'
+
+            });
+
+
+        });
+    </script>
+}
+
+

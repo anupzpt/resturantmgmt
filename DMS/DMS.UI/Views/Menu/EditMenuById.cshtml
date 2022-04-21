@@ -1,0 +1,205 @@
+﻿@using DMS.UI.ViewModels
+@model MenuListVM
+@{
+    ViewBag.Title = "Menu Details :: Edit";
+
+}
+<div class="">
+    <!-- start: PAGE HEADER -->
+    <!-- start: TOOLBAR -->
+    <!---->
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1 class="uc"> Edit Menu</h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="toolbar-tools pull-right">
+                <!-- start: TOP NAVIGATION MENU -->
+                <ul class="nav navbar-right">
+                    <li class="back">
+                        <a href="@Url.Action("Index")">
+                            <i class="fa fa-chevron-left"></i> BACK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- end: TOOLBAR -->
+    <!-- end: PAGE HEADER -->
+    <!-- start: PAGE CONTENT -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- start: FORM VALIDATION 1 PANEL -->
+            <div class="">
+                <div class="panel-body">
+                    <div class="row">
+                        <!--wrapper-->
+                        <!--Body-->
+                        @using (Html.BeginForm())
+                        {
+                        @Html.AntiForgeryToken()
+                            <div class="col-md-offset-2 col-md-8">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Menu Edit</div>
+                                    <div class="panel-body">
+                                        <!--Pannel content-->
+                                        <div class="form-horizontal">
+
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(x => x.Id)
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control ", @id = "menuTitle" } })
+                                                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control ", @id = "descriptionMenu" } })
+                                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.Label("Parent ID", htmlAttributes: new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.DropDownList("ParentId", null, "<--Select Parent-->", new { @class = "form-control Drop" })
+                                                    @Html.ValidationMessageFor(model => model.ActionId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.Label("Area", htmlAttributes: new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.DropDownList("Area", null, "<--Select Area-->", new { @class = "form-control search-select" })
+                                                    @Html.ValidationMessageFor(model => model.Area_id, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.Label("Menu Type", htmlAttributes: new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.DropDownList("MenuType", null, "<--Select Menu Type-->", new { @class = "form-control search-select" })
+                                                    @Html.ValidationMessageFor(model => model.MenuType, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.Label("Controller", htmlAttributes: new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.DropDownList("controllerList", null, "<--Select Controller-->", new { @class = "form-control Drop", @id = "controllerId" })
+                                                    @Html.ValidationMessageFor(model => model.ActionId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.Label("Action Name", htmlAttributes: new { @class = "control-label col-md-3" })
+
+                                                <div class="col-md-9">
+                                                    <div>
+                                                        <select name="actionid" id="actionId" class="form-control Drop"></select>
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.ActionId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    <div class="checkbox">
+                                                        @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "checkbox", data_toggle = "toggle", data_on = "Active", data_off = "DeActive" } })
+                                                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger " })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control " } })
+                                                    @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            @Html.HiddenFor(model => model.IconName, new { @class = "form-control ", @id = "iconEdit" })
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.IconName, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    <button class="btn btn-default iconpicker" id="iconSelect" type="button" data-icon="@Model.IconName" role="iconpicker" data-iconset="fontawesome" data-rows="3" data-cols="6" data-placement="left|top|bottom|right"></button>
+                                                    @Html.ValidationMessageFor(model => model.IconName, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-offset-3 col-md-9">
+                                                    <input type="button" id="SubmitButton" value="Save" class="btn btn-success btnForModal" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Pannel content-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header" style="background-color:#ce181f">
+                                                <button type="button" class="close" style="padding:5px; border-radius:30px 30px;" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title" style="color:white">Are you Sure!</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <p>Do you want to <span id="msg">Submit</span>?</p>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" value="Yes" id="ModalSubmitButton" class="btn btn-primary fa fa-check" style="margin:0 30px 0px 0px">Yes</button>
+                                                <button type="button" value="No" id="No" class="btn btn-danger fa fa-remove" data-dismiss="modal">No</button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <!--End Body-->
+                        <!--wrapper row ends-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+<script src="~/Scripts/bootstrap-iconpicker-iconset-all.min.js"></script>
+<script src="~/Scripts/bootstrap-iconpicker.min.js"></script>
+<script src="@Url.Content("~/Scripts/Menu/admin_menu.js")"></script>
+<script type="text/javascript">
+    
+
+
+
+
+        // Using javascript
+        $(document).ready(function () {
+
+
+            $('.iconpicker').iconpicker({
+                iconset: 'fontawesome',
+                icon: 'fa-key',
+                rows: 5,
+                cols: 5,
+                placement: 'top'
+
+            });
+
+
+        });
+</script>
+}

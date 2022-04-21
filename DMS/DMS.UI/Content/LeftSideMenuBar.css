@@ -1,0 +1,11 @@
+﻿
+.nav-side-menu ul :not(collapsed) .arrow:before,
+.nav-side-menu li :not(collapsed) .arrow:before {
+  font-family: FontAwesome!important;
+  content: "\f078";
+  display: inline-block!important;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle ;
+  float: right;
+}

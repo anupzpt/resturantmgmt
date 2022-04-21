@@ -1,0 +1,31 @@
+﻿@model DMS.UI.ViewModels.MenuListVM
+@{
+    IEnumerable<DMS.UI.ViewModels.MenuListVM> AllList = ViewBag.AllMenu;
+}
+<li>
+    <a href="@(Model.ControllerAction != null? Url.Action(Model.ControllerAction.ActionName,Model.ControllerAction.ControllerName,new { area = Model.Area_id }): "#")">
+        <i class="fa @Model.IconName"></i> <span class="title"> @Html.DisplayFor(x => Model.Description)</span>
+    </a>
+    @if (AllList.Where(x => x.ParentId == Model.Id).Count() > 0)
+    {
+        @*if (ViewHelper.StaticDashBoard() == true)
+        {
+            <ul class="nav child_menu">
+                @foreach (var item1 in AllList.Where(x => x.ParentId == Model.Id))
+                {
+                    @Html.DisplayFor(x => item1)
+                }
+            </ul>
+        }
+        else
+        {*@
+            <ul class="sub-menu">
+                @foreach (var item1 in AllList.Where(x => x.ParentId == Model.Id))
+                {
+                    @Html.DisplayFor(x => item1)
+                }
+            </ul>
+        //}
+
+    }
+</li>

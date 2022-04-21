@@ -1,0 +1,111 @@
+body{
+    background:#F7F7F7;
+}
+.bot-section {
+    border: 2px solid red;
+}
+
+.example {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+    .example .cont {
+        width: 25%;
+        float: left;
+    }
+
+        .example .cont .cha {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 20px;
+            line-height: 70px;
+        }
+
+        .example .cont canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width:70px;
+        }
+
+
+        .topbar {
+  
+  left: 0; 
+}
+
+#info > table.table thead th, table.table thead, table.table tfoot th, table.table tfoot{
+background:#BDBDBD!important;
+        }
+
+#myTab > .nav > li > a:focus, .nav > li > a:hover {
+    background-color: #1ABB9C !important;
+    color: #FFF;
+}
+
+#SearchPanel > input[type="text"]:disabled, textarea, select, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
+background-color: #FFFFFF;
+    border:1px solid #E6E9ED !important;
+}
+.count > h2 {
+    color:#337ab7;
+}
+.count-body > div , .count_bottom{
+    color:#BDBDBD;
+}
+ul.bar_tabs{
+padding-left:0px;
+}
+
+.navbar-right > li > ul.dropdown-menu > li{
+
+    padding :10px;
+}
+
+.DCardHistoryHead{
+    color:#BDBDBD;
+}
+#CardHistoryPanel.x_content > div.row >#DCardHistoryProgress > .mt-2 > progress{
+    margin-bottom: 15px!important;
+}
+ul.top_profiles#ResentActivitiesPanel{
+    height: 618px;    
+    overflow: auto;
+}
+
+#CardHistoryPanel{
+    font-size:10px!important;
+}
+
+.media.event .profile_left{
+    margin-top:15px;
+}
+
+#cards_total_display_panel >.row > .col.tile > a, #ResentActivitiesPanel  .media-body > a {
+    color: #024DA1!important;
+}
+
+ul.top_profiles#ResentActivitiesPanel > li.media.event > .media-body > p{
+
+    color:#BDBDBD!important;
+}
+
+ul.bar_tabs>li a {
+   
+    background: #b8bec7 !important;
+   
+}
+
+
+
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #fff !important;
+   background-color: #1ABB9C !important;
+    border-color: #dee2e6 #dee2e6 #fff;

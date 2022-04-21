@@ -1,0 +1,29 @@
+﻿@model List<DMS.UI.ViewModels.MenuListVM>
+@for (int i = 0; i < Model.Count(); i++)
+{
+    if (Model[i].ParentId == 0 && Model[i].DropDownName != null && Model[i].ChildMenuList.Count() == 0)
+    {
+
+    }
+    else
+    {
+        if (Model[i].ChildMenuList.Count() > 0)
+        {
+            <li>
+                <i class="fa fa-minus"></i>&nbsp;&nbsp;&nbsp;<label>@Html.EditorFor(x => Model[i].RoleAccess, new { htmlAttributes = new { @id = "parent", @menuId = Model[i].Id } }) &nbsp;&nbsp;&nbsp; @Html.DisplayFor(x => Model[i].Description)</label>
+                <ul style="display: block;">
+                    @Html.Partial("~/Views/Menu/EditorTemplate/DisplayTreeMenuPartial.cshtml", Model[i].ChildMenuList)
+                </ul>
+            </li>
+        }
+        else if (Model[i].DropDownName == null)
+        {
+            <li>
+                <label>
+                    @Html.EditorFor(x => Model[i].RoleAccess, new { htmlAttributes = new { @class = "hummingbirdNoParent", @id = "double2", @menuId = Model[i].Id } })
+                    &nbsp;&nbsp;&nbsp;  @Model[i].Description
+                </label>
+            </li>
+        }
+    }
+}

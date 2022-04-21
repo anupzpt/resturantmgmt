@@ -1,0 +1,8 @@
+﻿#demo-chart-1 text{
+  color: blue;
+}
+#demo-chart-1 .nv-axislabel {
+    fill: red;
+    font-weight: bold;
+
+}

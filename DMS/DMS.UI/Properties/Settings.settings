@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DMS.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SystemVersion" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Beta 1.0</Value>
+    </Setting>
+    <Setting Name="FolderPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/uploads/UploadedFiles/</Value>
+    </Setting>
+    <Setting Name="EnableDisableDigitalSignature" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LoginCompanyName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Faijan</Value>
+    </Setting>
+    <Setting Name="CustomerImagePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/uploads/CustomerImages/</Value>
+    </Setting>
+    <Setting Name="FileIconPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/Content/Assets/</Value>
+    </Setting>
+    <Setting Name="ResizeImageWidth" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="ResizeImageHeight" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">500</Value>
+    </Setting>
+    <Setting Name="LoanFileExt" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.jpg, .gif, .png, .pdf,.doc,.docx,.xls,.xlsx,.ppt</Value>
+    </Setting>
+    <Setting Name="OnlineFormExt" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.jpg,.png,.pdf</Value>
+    </Setting>
+    <Setting Name="TmpUploadPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/uploads/tmp</Value>
+    </Setting>
+    <Setting Name="ExcelConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties="Excel 12.0;HDR=Yes;IMEX=1;Empty Text Mode=NullAsEmpty;Allow Formula=false;ReadOnly=0"</Value>
+    </Setting>
+    <Setting Name="DBPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="EncryptPass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">pass1</Value>
+    </Setting>
+    <Setting Name="SuperAdminUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">admin@gmail.com</Value>
+    </Setting>
+    <Setting Name="SuperAdminPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">kist@123</Value>
+    </Setting>
+    <Setting Name="ClientName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Main Project</Value>
+    </Setting>
+    <Setting Name="eof_total_char" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="PwdSalt" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">faijan@101</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

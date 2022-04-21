@@ -1,0 +1,128 @@
+﻿@model DMS.Models.RegisterEditModel
+@using DMS.DAL.StaticHelper;
+
+@{
+    ViewBag.Title = "Edit";
+    SystemInfoForSession _ActiveSession = SessionHelper.GetSession();
+    bool IsOrgAdmin = _ActiveSession.IsOrgAdmin;
+
+}
+<div classs="container">
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1 class="">User<small>Edit</small> </h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <a href="#" class="back-subviews">
+                <i class="fa fa-chevron-left"></i> BACK
+            </a>
+            <a href="#" class="close-subviews">
+                <i class="fa fa-times"></i> CLOSE
+            </a>
+            <div class="toolbar-tools pull-right">
+                <!-- start: TOP NAVIGATION MENU -->
+                <ul class="nav navbar-right">
+                    <!-- start: TO-DO DROPDOWN -->
+                    <li>
+                        <a href="@Url.Action("Create")">
+                            <i class="fa fa-plus"></i> Add new
+                        </a>
+                    </li>
+                    <li class="back">
+                        <a href="@Url.Action("Index")">
+                            <i class="fa fa-chevron-left"></i> BACK
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm("Edit", "SystemUsers", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="col-lg-offset-3 col-md-6">
+            <div class="panel panel-default ">
+
+                <div class="panel-heading">User Register</div>
+                <div class="panel-body">
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        @Html.LabelForModel("Branch Name", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.DropDownList("BranchId", null, "None", htmlAttributes: new { @class = "form-control search-select", @Name = "BranchId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelForModel("Employee Name", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @*@if (IsOrgAdmin == true || _ActiveSession.IsSuperAdmin)
+                            {*@
+                                @Html.DropDownList("ForEditEmployeeId", null, "None", htmlAttributes: new { @class = "form-control search-select", @Name = "EmployeeId" })
+
+                            @*}
+                            else
+                            {
+                                @Html.EditorFor(m => m.EmployeeName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Name = "EmployeeId" } })
+                            }*@
+
+                            @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelForModel("Role", new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.DropDownList("RegRoles", null, "None", htmlAttributes: new { @class = "form-control search-select" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.usr05can_view_all_branch, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            <input type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" name="usr05can_view_all_branch" value="true" form-control @(Model != null && !Model.usr05can_view_all_branch ? "" : "checked") />
+                            @Html.ValidationMessageFor(model => model.usr05can_view_all_branch, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.status, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            <input type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" name="status" value="true" form-control @(Model != null && !Model.status ? "" : "checked") />
+                            @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 ">
+                            <div class="col-md-offset-10 ">
+                                <input type="submit" class="btn btn-success pull-right " value="Save" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+

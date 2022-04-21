@@ -1,0 +1,137 @@
+﻿@model DMS.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+@using (Html.BeginForm("Register", "SystemUsers", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1>
+                    System Users Create
+                </h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <a href="#" class="back-subviews">
+                <i class="fa fa-chevron-left"></i> BACK
+            </a>
+            <a href="#" class="close-subviews">
+                <i class="fa fa-times"></i> CLOSE
+            </a>
+            <div class="toolbar-tools pull-right">
+                <ul class="nav navbar-right">
+                    <li class="back">
+                        <a href="@Url.Action("Index")">
+                            <i class="fa fa-chevron-left"></i> BACK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="panel panel-default">
+                        <div class="panel panel-heading">Create</div>
+                        <div class="panel panel-body">
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            @*<div class="form-group">
+                                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                    </div>
+                                </div>*@
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.BranchName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("BranchId", null, "<---None--->", htmlAttributes: new { @class = "form-control search-select", @Name = "BranchId" })
+                                    @Html.ValidationMessageFor(model => model.BranchName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.EmployeeName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("EmployeeId", null, "<---None--->", htmlAttributes: new { @class = "form-control  search-select", @Name = "EmployeeId" })
+                                    @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.RegRoles, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("RegRoles", null, "<---None--->", htmlAttributes: new { @class = "form-control  search-select" })
+                                    @Html.ValidationMessageFor(model => model.RegRoles, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.usr05can_view_all_branch, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    <input type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" name="usr05can_view_all_branch" value="true" form-control @(Model != null && !Model.usr05can_view_all_branch ? "" : "checked") />
+                                    @Html.ValidationMessageFor(model => model.usr05can_view_all_branch, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group pull-right">
+                                <div class="col-md-12">
+                                    <button id="SubmitButton" type="button" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="panel panel-info">
+                        <div class="panel panel-heading">Password</div>
+                        <div class="panel panel-body">
+                            <div class="alert alert-success">
+                                Auto Generated Password will be sent to the specified email.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Are you Sure!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Do you want to <span id="msg">Submit</span>?</h6>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" value="Yes" id="ModalSubmitButton" class="btn btn-primary fa fa-check">Yes</button>
+                        <button type="button" value="No" id="No" class="btn btn-danger fa fa-remove" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

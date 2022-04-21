@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <dbConnectionInfo>
+    <URL>http://localhost:49384/</URL>
+    <ServerName>antsserver</ServerName>
+    <DatabaseName>DMS_ORM_PRABHU_LIVE</DatabaseName>
+    <UserName>DMS_ORM_PRABHU_LIVE</UserName>
+    <Password>DMS_ORM_PRABHU_LIVE</Password>
+  </dbConnectionInfo>
+  <dbConnectionInfo>
+    <URL>http://antsserver:20210/</URL>
+    <ServerName>antsserver</ServerName>
+    <DatabaseName>DMS_ORM_PRABHU_LIVE</DatabaseName>
+    <UserName>DMS_ORM_PRABHU_LIVE</UserName>
+    <Password>DMS_ORM_PRABHU_LIVE</Password>
+  </dbConnectionInfo>
+  <dbConnectionInfo>
+    <URL>http://antsserver:20211/</URL>
+    <ServerName>antsserver</ServerName>
+    <DatabaseName>DMS_KAMANA_ORM</DatabaseName>
+    <UserName>DMS_KAMANA_ORM</UserName>
+    <Password>DMS_KAMANA_ORM</Password>
+  </dbConnectionInfo>
+</root>

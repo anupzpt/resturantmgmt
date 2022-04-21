@@ -1,0 +1,32 @@
+﻿@model List<DMS.UI.ViewModels.MenuListVM>
+@{ var listMenu = Model.OrderBy(x => x.Position).ToList();}
+@foreach (var item in listMenu)
+{
+    if (item.ParentId == 0 && item.ChildMenuList.Count() == 0 && item.DropDownName != null)
+    {
+
+    }
+    else
+    {
+        <li class="treeview-menu">
+            @if (item.DropDownName != null)
+            {
+                <a href="#"><i class="fa fa-folder"></i>@item.DropDownName @*<i class="icon-arrow"></i>*@<i class="fa @item.IconName pull-right"></i> </a>
+            }
+            else
+            {
+               
+                <a href="@Url.Action(item.ControllerAction.ActionName,item.ControllerAction.ControllerName)">
+                    <i class="fa @item.IconName"></i>  @(item.Title)
+                </a>
+
+            }
+            @if (item.ChildMenuList.Count() > 0)
+            {
+                <ul class="treeview-menu" id="DynamicMenu_@item.Id menu-list" hidden>
+                    @Html.Partial("~/Views/Menu/EditorTemplate/_Submenu.cshtml", item.ChildMenuList.OrderBy(x => x.Position).ToList())
+                </ul>
+            }
+        </li>
+    }
+}

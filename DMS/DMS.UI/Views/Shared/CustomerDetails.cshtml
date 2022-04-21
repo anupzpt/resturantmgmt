@@ -1,0 +1,111 @@
+﻿@model DMS.DAL.DatabaseContext.Customer
+
+@if (Model == null)
+{
+    <div class="alert alert-danger">Customer Information Not Found.</div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">
+            @if (Model.acc01account_no != null && Model.acc01account_no.Count() != 0)
+            {
+                <div class="panel panel-success">
+                    <div class="panel panel-heading">Activated Cards</div>
+                    <div class="panel-body">
+                        <div class="table-responsive col-md-12">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            SN
+                                        </th>
+                                        <th class="center">
+                                            Account Number
+                                        </th>
+                                        <th class="center">
+                                            Activated Card Number
+                                        </th>
+                                        <th class="center">
+                                            Card Requested Status
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{ int sn = 0;}
+                                    @foreach (var data in Model.acc01account_no)
+                                    {
+                                        var card_details = data.card01overall_cards.FirstOrDefault(x => x.card01sys10enum_card_status == (byte)DMS.DAL.EnumCardStatus.Activated);
+                                        if (card_details != null)
+                                        {
+                                            <tr>
+                                                <td class="center">@(++sn)</td>
+                                                <td class="center">@data.acc01account_no1</td>
+                                                <td class="center">@(card_details.card01code)</td>
+                                                <td class="center">@(card_details.sys10enum_card_status.sys10title)</td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="panel panel-info">
+                <div class="panel panel-heading">Customer Info</div>
+                <div class="panel-body">
+                    <div class="table-responsive col-md-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        CBS Code
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Address
+                                    </th>
+                                    <th>
+                                        Phone
+                                    </th>
+                                    <th>
+                                        Mobile No
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Marital Status
+                                    </th>
+                                    <th>
+                                        Gender
+                                    </th>
+                                    <th>
+                                        BirthDate
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Model.CBSCode</td>
+                                    <td id="name">@Model.Name</td>
+                                    <td id="address">@Model.Address</td>
+                                    <td id="phone">@Model.Telephone</td>
+                                    <td id="mobileNo">@Model.MobileNumber</td>
+                                    <td id="Email">@Model.Email</td>
+                                    <td id="maritalStatus">@(Model.Customer_Person != null ? Model.Customer_Person.DisplayMaritalStatus : "")</td>
+                                    <td id="gender">@(Model.Customer_Person != null ? Model.Customer_Person.DisplayGender : "")</td>
+                                    <td id="birthDate">@(Model.Customer_Person != null ? ViewHelper.GetDate(Model.Customer_Person.Birthdate) : "")</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,83 @@
+﻿@model DMS.Models.LoginViewModel
+@{
+                /**/
+
+                ViewBag.Title = "Login";
+                Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(x => x.returnUrl)
+    <div class="login row">
+        <div class="main-login col-xs-12 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+            <!-- start: LOGIN BOX -->
+            <div class="row padBox">
+                <div class="col-sm-6">
+                    <div class="thumbnail">
+                        <img width="200px" src="@Url.Content("~/" + ViewHelper.TenantFile("Content/Images/logo.jpg"))" class="img-responsive" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="">
+                        <h3 align="center">
+                            Main Project
+                        </h3>
+                        <form class="form-login" action="index.html">
+                            @Html.Raw(FlashBag.showMessage())
+
+                            <fieldset>
+                                <div class="">
+                                    <div class="">
+                                        <span class="input-icon">
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @Id = "username", @placeholder = "User Name" } })
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="">
+                                        <span class="input-icon">
+                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @Id = "password", @placeholder = "Password" } })
+                                            <i class="fa fa-lock"></i>
+                                        </span>
+
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <button type="submit" class="btn btn-danger btn-block">
+                                                Login <i class="fa fa-arrow-circle-right"></i>
+                                            </button>
+                                            <br />
+                                            <a href="@Url.Action("ForgotPassword","Account")" class="forget_pass" target="">Forgot Password?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <!-- start: COPYRIGHT -->
+                        <div class="copyright" style="color:black;">
+                            Copyright &copy; @DateTime.Now.Year @(ViewHelper.LoginCompanyName). All rights reserved.
+                        </div>
+                        <!-- end: COPYRIGHT -->
+                    </div>
+                </div>
+
+            </div>
+            <!-- end: LOGIN BOX -->
+            <!-- start: FORGOT BOX -->
+        </div>
+
+        <div id="bg_bottom_login" class="">
+
+        </div>
+
+    </div>
+
+
+
+}

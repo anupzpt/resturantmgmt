@@ -1,0 +1,230 @@
+﻿@model DMS.ViewModels.Role_Permission_VM
+
+
+@{ ViewBag.Title = "Set Permission";
+    var SelectedMenuList = Model.SelectedMenuListVMList;
+    var UnSelectedMenuList = Model.NotSelectedMenuListVMList;
+}
+<div class="">
+    <!-- start: PAGE HEADER -->
+    <!-- start: TOOLBAR -->
+    <!---->
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1 class="uc">Menu List</h1>
+
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="toolbar-tools pull-right">
+                <!-- start: TOP NAVIGATION MENU -->
+                <ul class="nav navbar-right">
+                    <li class="back">
+                        <a id="SubmitButton">
+                            <i class="fa fa-check"></i> Save
+                        </a>
+
+                    </li>
+                    <li class="back">
+                        <a href="@Url.Action("Index","RolePermission")">
+                            <i class="fa fa-chevron-left"></i> Back
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- end: TOOLBAR -->
+    <!-- end: PAGE HEADER -->
+    <!-- start: PAGE CONTENT -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- start: FORM VALIDATION 1 PANEL -->
+            <form action="" method="post" class="form-horizontal">
+                <div class="panel panel-default">
+                    <!--wrapper-->
+                    <!--extra-->
+                    <div class="panel panel-heading"> <h4>Employee Type : @Html.DisplayFor(x => x.ApplicationRole.Name)</h4></div>
+                    <div class="panel-body">
+                        <!--Body-->
+                        <!--BODY STARTS-->
+                        @if (TempData["Message"] != null)
+                        {
+                            <div class="alert alert-info">@TempData["Message"]</div>
+                        }
+                        <input type="hidden" name="Emp_Type" value="@Model.ApplicationRole.Id" />
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>ID</th>
+                                    <th>
+                                        @Html.DisplayName("Title")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("ControllerName")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("ActionName")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Description")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("IconName")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("Position")
+                                    </th>
+                                    <th>
+                                        @Html.DisplayName("IsActive")
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @if (SelectedMenuList.Any())
+                                {
+                                    foreach (var item in SelectedMenuList)
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="Perm1[]" value="@item.Id" checked />
+                                            </td>
+                                            <td>@item.Id</td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ControllerAction.ControllerName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ControllerAction.ActionName)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IconName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Position)
+                                            </td>
+                                            <td>
+                                                <div type="button" class="btn btn-info btn-sm">
+                                                    @if (item.IsActive)
+                                                    {
+                                                        <lable>Active</lable>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <lable>DeActive</lable>
+                                                    }
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                }
+                                @if (UnSelectedMenuList.Any())
+                                {
+                                    foreach (var item in UnSelectedMenuList)
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="Perm1[]" value="@item.Id" />
+                                            </td>
+                                            <td>@item.Id</td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ControllerAction.ControllerName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ControllerAction.ActionName)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Description)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IconName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Position)
+                                            </td>
+                                            <td>
+                                                <div type="button" class="btn btn-info btn-sm">
+                                                    @if (item.IsActive)
+                                                    {
+                                                        <lable>Active</lable>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <lable>DeActive</lable>
+                                                    }
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                        <!--BODY ENDS-->
+                        <div class="row">
+                            <div class="col-md-offset-5 col-md-3">
+                                <div class="col-sm-6 ">
+                                    <button id="SubmitButton" type="button" class="btn btn-block btn-success"> <i class="fa fa-check"></i> Save</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!--End Body-->
+                    </div>
+                    <!--wrapper row ends-->
+                </div>
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color:#ce181f">
+                                    <button type="button" class="close" style="padding:5px; border-radius:30px 30px;" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title" style="color:white">Are you Sure!</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <p>Do you want to <span id="msg">Submit</span>?</p>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" value="Yes" id="ModalSubmitButton" class="btn btn-primary fa fa-check" style="margin:0 30px 0px 0px">Yes</button>
+                                    <button type="button" value="No" id="No" class="btn btn-danger fa fa-remove" data-dismiss="modal">No</button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

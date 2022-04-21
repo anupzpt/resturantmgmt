@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DMS.DAL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="server" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Antsserver</Value>
+    </Setting>
+    <Setting Name="ExcelConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties="Excel 12.0;HDR=Yes;IMEX=1;Empty Text Mode=NullAsEmpty;Allow Formula=false;ReadOnly=0"</Value>
+    </Setting>
+    <Setting Name="UploadImageW" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">680</Value>
+    </Setting>
+    <Setting Name="UploadImageH" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">480</Value>
+    </Setting>
+    <Setting Name="GetExternalIPInfo" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="db" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">dms_kamana_card_live</Value>
+    </Setting>
+    <Setting Name="user" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">dms_kamana_card_live</Value>
+    </Setting>
+    <Setting Name="pass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">dms_kamana_card_live</Value>
+    </Setting>
+    <Setting Name="ImageTypes" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.jpg,.bmp,.gif,.png,.jpeg</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

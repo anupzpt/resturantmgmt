@@ -1,0 +1,184 @@
+﻿@model IEnumerable<DMS.UI.ViewModels.MenuListVM>
+
+@{
+    ViewBag.Title = "Menu :: List";
+}
+<div class="container">
+    <!-- start: PAGE HEADER -->
+    <!-- start: TOOLBAR -->
+    <!---->
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1 class="">
+                    Menu
+                    <small>List</small>
+                </h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="toolbar-tools pull-right">
+                <!-- start: TOP NAVIGATION MENU -->
+                <ul class="nav navbar-right">
+
+                    <li class="back">
+                        <a href="@Url.Action("EditMenuWithParent","Menu")">
+                            <i class="fa fa-list"></i> Bulk Parent Edit
+                        </a>
+                    </li>
+                    <li class="back">
+                        <a href="@Url.Action("CreateControllerAction","ControllerAction")">
+                            <i class="fa fa-refresh"></i> Scan And Add
+                        </a>
+                    </li>
+                    <li class="back">
+                        <a href="@Url.Action("CreateNewMenu")">
+                            <i class="fa fa-plus"></i> Add New
+                        </a>
+                    </li>
+                    <li class="back">
+                        <a href="@Url.Action("Dashboard","Home")">
+                            <i class="fa fa-chevron-left"></i>Back
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- end: TOOLBAR -->
+    <!-- end: PAGE HEADER -->
+    <!-- start: PAGE CONTENT -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+
+                    <!--BODY STARTS-->
+                    @if (TempData["Message"] != null)
+            {
+            <div class="alert alert-info">@TempData["Message"]</div>
+                    }
+                    <div class="table-responsive">
+
+                        <table class="table  table-striped table-hover table-bordered dataTable">
+                            <thead>
+                                <tr>
+                                    <th>S.N.</th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Title)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ControllerAction.ControllerName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ControllerAction.ActionName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Description)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IconName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Position)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Area_id)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.MenuType)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IsActive)
+                                    </th>
+
+                                    <th class="center">Action</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @{ int i = 0;}
+                                @foreach (var item in Model)
+                                {
+                                    i++;
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Title)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ControllerAction.ControllerName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ControllerAction.ActionName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Description)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.IconName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Position)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DisplayArea)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DisplayMenuType)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.IsActive)
+                                        </td>
+                                        <td class="center">
+                                            <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                <div class="col-md-3">
+                                                    <a class="btn btn-xs  btn-light-blue tooltips" href="@Url.Action("EditMenuById", new { id=item.Id})" data-original-title="Edit" data-placement="top"><i class="fa fa-edit"></i></a>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <a class="btn btn-xs  btn-green tooltips" href="@Url.Action("Details", new { id=item.Id})" data-original-title="View" data-placement="top"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <a class="btn btn-xs  btn-red tooltips" href="@Url.Action("Delete", new { id=item.Id})" data-original-title="Remove" data-placement="top"><i class="fa fa-times fa fa-white"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                <div class="btn-group">
+                                                    <a class="btn btn-xs  btn-green dropdown-toggle btn-sm" href="#" data-toggle="dropdown">
+                                                        <i class="fa fa-cog"></i> <span class="caret"></span>
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdown-dark pull-right" role="menu">
+                                                        <li role="presentation">
+                                                            <a tabindex="-1" role="menuitem" href="#">
+                                                                <i class="fa fa-edit"></i> Edit
+                                                            </a>
+                                                        </li>
+                                                        <li role="presentation">
+                                                            <a tabindex="-1" role="menuitem" href="#">
+                                                                <i class="fa fa-eye"></i> View
+                                                            </a>
+                                                        </li>
+                                                        <li role="presentation">
+                                                            <a tabindex="-1" role="menuitem" href="#">
+                                                                <i class="fa fa-times"></i> Remove
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--BODY ENDS-->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

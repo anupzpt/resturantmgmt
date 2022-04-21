@@ -1,0 +1,142 @@
+﻿@model DMS.UI.ViewModels.ApplicationRoleVM
+
+
+@{
+    ViewBag.Title = "Set Permission";
+}
+<div class="">
+    <!-- start: PAGE HEADER -->
+    <!-- start: TOOLBAR -->
+    <!---->
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1 class="uc">
+                    Role User List
+                    <small>Employee Type : @(ViewBag.EmpType)</small>
+                </h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="toolbar-tools pull-right">
+                <!-- start: TOP NAVIGATION MENU -->
+                <ul class="nav navbar-right">
+                    <li class="back">
+                        <a href="@Url.Action("Index","RolePermission")">
+                            <i class="fa fa-chevron-left"></i> Back
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- end: TOOLBAR -->
+    <!-- end: PAGE HEADER -->
+    <!-- start: PAGE CONTENT -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- start: FORM VALIDATION 1 PANEL -->
+            <form action="" method="post" class="form-horizontal">
+                <div class="panel-body">
+                    <div class="row">
+                        <!--wrapper-->
+                        <!--extra-->
+                        <div class="panel panel-primary">
+                            <div class="panel panel-body">
+                                <!--Body-->
+
+                                <div class="col-md-12">
+
+
+                                    <!--BODY STARTS-->
+                                    <table class="table dataTable table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>ID</th>
+                                                <th>
+                                                    Name
+                                                </th>
+                                                <th>
+                                                    Email
+                                                </th>
+                                                <th>
+                                                   Role
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @if (Model != null)
+                                            {
+                                            if (Model.applicationUserVm != null)
+                                            {
+                                                foreach (var item in Model.applicationUserVm)
+                                                {
+                                            <tr>
+                                                <td></td>
+                                                <td>@item.Id</td>
+                                                @*<td>
+                                                    @if (item.IsGroup)
+                                                    {
+                                                    <a href="@Url.Action("Details", "EmployeeGroup", new { id = item.GroupID })">@item.Name</a>
+                                                    }
+                                                    else
+                                                    {
+                                                    @Html.DisplayFor(modelItem => item.Name)
+                                                    }
+                                                </td>*@
+                                                <td>
+                                                  @item.UserName
+                                                </td>
+                                                <td>
+                                                  @item.Email
+                                                </td>
+                                                <td>@item.IsAssignRole</td>
+                                            </tr>
+                                                }
+                                            }
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <!--BODY ENDS-->
+
+                                </div>
+                                <!--End Body-->
+                            </div>
+                        </div>
+                        <!--wrapper row ends-->
+                    </div>
+                </div>
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color:#ce181f">
+                                    <button type="button" class="close" style="padding:5px; border-radius:30px 30px;" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title" style="color:white">Are you Sure!</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <p>Do you want to <span id="msg">Submit</span>?</p>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" value="Yes" id="ModalSubmitButton" class="btn btn-primary fa fa-check" style="margin:0 30px 0px 0px">Yes</button>
+                                    <button type="button" value="No" id="No" class="btn btn-danger fa fa-remove" data-dismiss="modal">No</button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

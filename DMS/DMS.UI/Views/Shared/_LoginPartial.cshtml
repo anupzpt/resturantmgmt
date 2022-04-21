@@ -1,0 +1,48 @@
+﻿@using DMS.DAL.StaticHelper
+
+@{
+    var SessionSystemInfo = (SystemInfoForSession)Session["SystemInfoForSession"];
+}
+@if (Request.IsAuthenticated)
+{
+    if (SessionSystemInfo != null)
+    {
+        <li class="dropdown">
+            <div class="btn">
+            <div class="col-xs-4">
+                <div class="row user-profile">
+                    <img src="@Url.Content("~/Content/assets/images/sample/m1.jpg")" height="50px" class="" alt="" style="width: 29px;height: 29px;border-radius: 50%;margin-right: 10px;">
+
+                </div>
+            </div>
+                <div class="col-xs-6">
+                    <div class="row">
+                        <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userMenu" class="">
+                            @*<i class="fa fa-user"></i>*@
+                            @(SessionSystemInfo.EmployeeName == null || SessionSystemInfo.EmployeeName == "" ? SessionSystemInfo.UserName : SessionSystemInfo.EmployeeName)
+                            @if (SessionSystemInfo.BranchId != null)
+                    {
+                                <br />
+                                @SessionSystemInfo.BranchName
+                            }
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="dropdown-menu" aria-labelledby="userMenu">
+                <li>
+                    <a href="@Url.Action("ChangePassword", "Manage")">
+                        <i class="fa fa-lock"></i> Change Password
+                    </a>
+                </li>
+                <li><a href="@Url.Action("MyProfile", "SystemUsers")"><i class="fa fa-info"></i> My Profile</a></li>
+                <li><a href="@Url.Action("LogOff", "Account")"><i class="fa fa-power-off"></i> Log off</a></li>
+            </ul>
+        </li>
+    }
+}
+else
+{
+    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+}

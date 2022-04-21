@@ -1,0 +1,95 @@
+﻿#pageslide-left .logo-prabhu .navigation-toggler {
+    cursor: pointer;
+    height: 30px;
+    margin-left: 10px !important; 
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 16px;
+    line-height: 30px;
+    text-align: center;
+}
+
+ #pageslide-left .navigation-toggler .sb-toggle-left {
+    background: url(../../images/dark_dots.png) no-repeat center center;
+}
+ .btn-green a, .btn-red a{
+     color:#fff !important;
+ }
+ .panel-top-gap{
+     margin-top:10px;
+ }
+ .gg{
+     color:red;
+ }
+ .input-date-pad{
+     padding: 0px 0px !important;
+ }
+ .node-name{
+     color: #fff;
+     margin-left:10px;
+     font-size : 20px;
+     background-color:#b70000;
+ }
+ .node-sub-name{
+     color: #fff;
+     margin-left:0px;
+     font-size : 20px;
+     background-color:#b70000;
+ }
+.layout-tree{
+    background-color: #e5e8ed !important;
+    font-size: 14px !important;
+    color: #fff !important;
+}
+.ledger-panel .panel-heading{
+    min-height:40px !important;
+    background: #b70000 !important;
+
+}
+.ledger-panel .nav-tabs {
+    border: medium none;
+    float: right;
+    margin-top: -46px;
+}
+.space40{
+    margin-bottom: 40px !important;
+    clear: both;
+}
+.border-top-button{
+    border-top:solid 1px;
+    border-bottom:solid 1px;
+}
+
+ .todo li .label {
+    position: absolute !important;
+   
+    padding: 6px !important;
+   
+}
+.todo li  .del-list{
+    position: absolute !important;
+    right: 10px !important;
+    padding: 6px !important;
+}
+ #ledgerList{
+     width: 300px;
+ }   
+ .tbl-header{
+     background-color: rgb(230, 222, 222);
+ }
+.check-charkhata{
+     padding-right: 0px !important;
+     margin-right : 0px !important;
+ }
+.photo{
+    border:1px solid #ddd;
+    height:50px;
+}
+.sign {
+    border:1px solid #ddd;
+    height:50px;
+}
+.textarea {
+    height:50px;
+    width:333px;
+}

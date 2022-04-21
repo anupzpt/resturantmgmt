@@ -1,0 +1,7 @@
+﻿@model List<DMS.UI.ViewModels.MenuListVM>
+@*<ul class="main-navigation-menu " id="menu-list ">*@
+@if (Model != null)
+{
+    @Html.Partial("~/Views/Menu/EditorTemplate/_Submenu.cshtml", Model)
+}
+@*</ul>*@

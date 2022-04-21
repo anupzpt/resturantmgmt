@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4351f9a9048044c5947f9d821dea7140" Name="Diagram1">
+        <EntityTypeShape EntityType="BIT4thSemModel.bra01branches" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="BIT4thSemModel.cfg01configurations" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BIT4thSemModel.dep01department" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="BIT4thSemModel.des01designations" Width="1.5" PointX="0.75" PointY="12.125" />
+        <EntityTypeShape EntityType="BIT4thSemModel.emp01employee" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="BIT4thSemModel.lvl01employee_levels" Width="1.5" PointX="0.75" PointY="16.5" />
+        <EntityTypeShape EntityType="BIT4thSemModel.tbl_employee" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BIT4thSemModel.UserCode" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="BIT4thSemModel.usr05users" Width="1.5" PointX="5.25" PointY="2.25" />
+        <AssociationConnector Association="BIT4thSemModel.FK_emp01employee_bra01branches" />
+        <AssociationConnector Association="BIT4thSemModel.FK_usr05users_bra01branches" />
+        <AssociationConnector Association="BIT4thSemModel.FK_emp01employee_dep01department" />
+        <AssociationConnector Association="BIT4thSemModel.FK_emp01employee_des01designations" />
+        <AssociationConnector Association="BIT4thSemModel.FK_emp01employee_lvl01employee_levels" />
+        <AssociationConnector Association="BIT4thSemModel.FK_usr05users_emp01employee" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

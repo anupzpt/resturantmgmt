@@ -1,0 +1,509 @@
+﻿@model DMS.ViewModels.VMEmail.VMEditSettings
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1>
+                    Configuration
+                    <small>List</small>
+                </h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="toolbar-tools pull-right">
+                <ul class="nav navbar-right">
+                    <li class="back">
+                        <a href="@Url.Action("Index")">
+                            <i class="fa fa-chevron-left">
+                            </i> BACK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    @Html.Raw(FlashBag.showMessage())
+                    @using (Html.BeginForm())
+                    {
+
+                        int sn = 0;
+                        <div class="table-responsive col-md-12">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            SN
+                                        </th>
+                                        <th>
+                                            Module Name
+                                        </th>
+                                        <th>
+                                            Key Name
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            General
+                                        </td>
+                                        <td>
+                                            Mobile No Mandatory
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" data-toggle="toggle" data-on="True" data-off="False" data-onstyle="success" data-offstyle="danger" name="MobileNoMandatory" value="true" form-control @(Model != null && !Model.MobileNoMandatory ? "" : "checked")>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            General
+                                        </td>
+                                        <td>
+                                            Display Customer Type Select Option
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" data-toggle="toggle" data-on="True" data-off="False" data-onstyle="success" data-offstyle="danger" name="DisplayCustomerTypeOption" value="true" form-control @(Model != null && !Model.DisplayCustomerTypeOption ? "" : "checked")>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            General
+                                        </td>
+                                        <td>
+                                            Instant Card Pdf Upload Mandatory
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" data-toggle="toggle" data-on="True" data-off="False" data-onstyle="success" data-offstyle="danger" name="InstantCardPdfUploadMandatory" value="true" form-control @(Model != null && !Model.InstantCardPdfUploadMandatory ? "" : "checked")>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            General
+                                        </td>
+                                        <td>
+                                            Email Mandatory
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" data-toggle="toggle" data-on="True" data-off="False" data-onstyle="success" data-offstyle="danger" name="EmailMandatory" value="true" form-control @(Model != null && !Model.EmailMandatory ? "" : "checked")>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            General
+                                        </td>
+                                        <td>
+                                            Has Own CCMS Api
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" data-toggle="toggle" data-on="True" data-off="False" data-onstyle="success" data-offstyle="danger" name="HasOwn_CCMS_Api" value="true" form-control @(Model != null && !Model.HasOwn_CCMS_Api ? "" : "checked")>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            General
+                                        </td>
+                                        <td>
+                                            Enable CBS Charge Deduction Module
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" data-toggle="toggle" data-on="True" data-off="False" data-onstyle="success" data-offstyle="danger" name="EnableCBSChargeDeduction" value="true" form-control @(Model != null && !Model.EnableCBSChargeDeduction ? "" : "checked")>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            General
+                                        </td>
+                                        <td>
+                                            CCMS Api Token
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.API_Customer_Token, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Mail
+                                        </td>
+                                        <td>
+                                            Email Notification
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" data-toggle="toggle" data-on="True" data-off="False" data-onstyle="success" data-offstyle="danger" name="EmailNotification" value="true" form-control @(Model != null && !Model.EmailNotification ? "" : "checked")>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Mail
+                                        </td>
+                                        <td>
+                                            SMTP Server
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.SMTPServer, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Mail
+                                        </td>
+                                        <td>
+                                            SMTP User
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.SMTPUser, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Mail
+                                        </td>
+                                        <td>
+                                            SMTP Password
+                                        </td>
+                                        <td>
+                                            <input type="password" value="@Model.SMTPPassword" name="SMTPPassword" class="form-control" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Mail
+                                        </td>
+                                        <td>
+                                            SMTP Port
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.SMTPPort, new { htmlAttributes = new { @class = "form-control number" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Mail
+                                        </td>
+                                        <td>
+                                            SMTP From
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.SMTPFrom, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Mail
+                                        </td>
+                                        <td>
+                                            SMTP SSL
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" data-toggle="toggle" data-on="True" data-off="False" data-onstyle="success" data-offstyle="danger" name="SMTPSSL" value="true" form-control @(Model != null && !Model.SMTPSSL ? "" : "checked")>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="table-responsive col-md-12">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            SN
+                                        </th>
+                                        <th>
+                                            Module Name
+                                        </th>
+                                        <th>
+                                            Key Name
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            Program ID
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.ProgramID, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            Bank Code
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.BankCode, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            DAP_AST_CODE
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.DAP_AST_CODE, new { htmlAttributes = new { @class = "form-control number" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            DAP_COU_COD1
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.DAP_COU_COD1, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            DAP_MST_COD1
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.DAP_MST_COD1, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            DAP_OLD_NEW_ACCT
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.DAP_OLD_NEW_ACCT, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            DAP_REQU_CPR_CODE
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.DAP_REQU_CPR_CODE, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            DAP_USER
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.DAP_USER, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            FirstAddressType
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.FirstAddressType, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            DAP_REQU_DPR_CODE
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.DAP_REQU_DPR_CODE, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            CLC
+                                        </td>
+                                        <td>
+                                            Default City Code
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.DefaultCityCode, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    
+                        <div class="table-responsive col-md-12">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            SN
+                                        </th>
+                                        <th>
+                                            Module Name
+                                        </th>
+                                        <th>
+                                            Key Name
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Instant
+                                        </td>
+                                        <td>
+                                            Fake Ref No Prefix
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.FakeRefPrefix, new { htmlAttributes = new { @class = "form-control" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Instant
+                                        </td>
+                                        <td>
+                                            Last Fake Reference Number
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.LastFakeRefNo, new { htmlAttributes = new { @class = "form-control number" } })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @(++sn)
+                                        </td>
+                                        <td>
+                                            Instant
+                                        </td>
+                                        <td>
+                                            Last Fake Client Code
+                                        </td>
+                                        <td>
+                                            @Html.EditorFor(modelItem => Model.LastFakeCBSCode, new { htmlAttributes = new { @class = "form-control number" } })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pull-right col-md-1">
+                            <input class="btn btn-success" type="submit" value="Save" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

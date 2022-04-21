@@ -1,0 +1,87 @@
+﻿@model DMS.DAL.DatabaseContext.emp01employee
+@{
+    ViewBag.Title = "emp01employee";
+}
+<div class="panel panel-default">
+    <div class="panel panel-heading">Employee</div>
+    <div class="panel-body">
+        <div class="row form-group">
+            @Html.LabelFor(model => model.emp01code, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.emp01code, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.emp01name, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.emp01name, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.emp01email, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.emp01email, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.emp01mobile, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.emp01mobile, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.emp01join_date_eng, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.emp01join_date_eng, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.emp01address, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.emp01address, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.emp01bra01uin, "Branch", htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.bra01branches.bra01name, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            @Html.LabelFor(model => model.emp01des01uin, "Designation", htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.des01designations.des01title, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.emp01dep01uin, "Department", htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.dep01department.dep01title, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.emp01lvl01uin, "Level", htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.lvl01employee_levels.lvl01title, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row form-group">
+            @Html.LabelFor(model => model.emp01status, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @if (Model.emp01status)
+                {
+
+                    <span class="label label-sm label-success">Active</span>
+
+                }
+                else
+                {
+
+                    <span class="label label-sm label-danger">Inactive</span>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+   
+
+
+
+

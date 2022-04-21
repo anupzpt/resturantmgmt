@@ -1,0 +1,216 @@
+﻿
+
+@{ bool Admin = ViewBag.IsSuperAdmin ;
+  bool orgAdmin=  ViewBag.IsOrgAdmin ;}
+<li>
+    <a href="javascript:;" class="active">
+        <i class="fa fa-university"></i> <span class="title uppercaseOnly">System Management</span> <i class="icon-arrow"></i>
+    </a>
+    <ul class="sub-menu">
+        @*@if(Admin==true || orgAdmin == true) {*@ 
+        <li><a href="@Url.Action("Index", "SystemUsers")"><i class="fa fa-line-chart"></i> UserManagement</a></li>
+        @*}*@
+        <li><a href="@Url.Action("Index", "Provinces")"><i class="fa fa-line-chart"></i> Province</a></li>
+        <li><a href="@Url.Action("Index", "Zone")"><i class="fa fa-line-chart"></i> Zone</a></li>
+
+        <li><a href="@Url.Action("Index", "District")"><i class="fa fa-line-chart"></i> Districts</a></li>
+        <li><a href="@Url.Action("Index", "Municipalities")"><i class="fa fa-line-chart"></i> Municipality</a></li>
+
+        <li><a href="@Url.Action("Index", "AgentCategories")"><i class="fa fa-line-chart"></i> Agent Categories</a></li>
+        <li><a href="@Url.Action("Index", "CertificateTypes")"><i class="fa fa-line-chart"></i> Certificate Types</a></li>
+
+        <li><a href="@Url.Action("Index", "ProfessionTypes")"><i class="fa fa-line-chart"></i> Profession Type</a></li>
+        <li><a href="@Url.Action("Index", "HealthStatusTypes")"><i class="fa fa-line-chart"></i> Health Status</a></li>
+        <li><a href="@Url.Action("Index", "QualificationTypes")"><i class="fa fa-line-chart"></i> Qualification</a></li>
+        <li><a href="@Url.Action("Index", "RelationTypes")"><i class="fa fa-line-chart"></i> Relation</a></li>
+        <li><a href="@Url.Action("Index", "customer_document_types")"><i class="fa fa-line-chart"></i>Customer Document Types</a></li>
+        <li><a href="@Url.Action("Index", "Product")"><i class="fa fa-line-chart"></i>Product</a></li>
+
+    </ul>
+</li>
+<li>
+    <a href="javascript:;" class="active">
+        <i class="fa fa-university"></i> <span class="title uppercaseOnly">Policy Management</span> <i class="icon-arrow"></i>
+    </a>
+
+    <ul class="sub-menu">
+        <li><a href="@Url.Action("Index", "MainAgent")"><i class="fa fa-line-chart"></i> Agent Update</a></li>
+        <li><a href="@Url.Action("ForExternalPolicy", "CustomerInfo")"><i class="fa fa-line-chart"></i>  Premium Collection</a></li>
+@if (Admin || orgAdmin)
+{
+
+
+}
+else
+{
+    <li><a href="@Url.Action("Index", "CustomerInfo")"> <i class="fa fa-line-chart"></i>Conventional Policy Purchase</a></li>
+    <li><a href="@Url.Action("Index", "TermPolicies")"><i class="fa fa-line-chart"></i>Term Policy</a></li>
+        <li><a href="@Url.Action("Index", "ForeignEmploymentPolicies")"><i class="fa fa-line-chart"></i>Foreign Policy</a></li>
+}
+
+    </ul>
+    <ul></ul>
+</li>
+<li>
+    <a href="javascript:; " class="active">
+        <i class="fa fa-university"></i> <span class="title uppercaseOnly"> Agent Report</span> <i class="icon-arrow"></i>
+    </a>
+    <ul class="sub-menu">
+        <li>
+            <a href="javascript:;" class="active">
+                <i class="fa fa-university"></i> <span class="title uppercaseOnly">Sub Agent</span> <i class="icon-arrow"></i>
+            </a>
+            <ul class="sub-menu">
+                <li><a href="@Url.Action("ProductSalesReport","SubAgentReport")"><i class="fa fa-line-chart"></i> Sales Report</a></li>
+                <li><a href="@Url.Action( "PremiunCollection","SubAgentReport")"><i class="fa fa-line-chart"></i> Premium Collection</a></li>
+                <li><a href="@Url.Action( "UserTransaction" ,"SubAgentReport")"><i class="fa fa-line-chart"></i> User Transaction</a></li>
+
+                <li><a href="@Url.Action( "PolicyProductReport","SubAgentReport")"><i class="fa fa-line-chart"></i> Product Report</a></li>
+                <li><a href="@Url.Action("PolicyOnhold","SubAgentReport")"><i class="fa fa-line-chart"></i> Policy On Hold</a></li>
+
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="active">
+                <i class="fa fa-university"></i> <span class="title uppercaseOnly">Main Agent</span> <i class="icon-arrow"></i>
+            </a>
+            <ul class="sub-menu">
+                <li><a href="@Url.Action("ProductSalesReport","MainAgentReport")"> <i class="fa fa-line-chart"></i> Sales Report</a></li>
+                <li><a href="@Url.Action( "PremiunCollection","MainAgentReport")"><i class="fa fa-line-chart"></i> Premium Collection</a></li>
+                <li><a href="@Url.Action( "UserTransaction" ,"MainAgentReport")"><i class="fa fa-line-chart"></i> User Transaction</a></li>
+
+                <li><a href="@Url.Action( "PolicyProductReport","MainAgentReport")"><i class="fa fa-line-chart"></i> Product Report</a></li>
+                <li><a href="@Url.Action("PolicyOnhold","MainAgentReport")"><i class="fa fa-line-chart"></i> Policy On Hold</a></li>
+
+
+            </ul>
+
+        </li>
+        <!-- /li sub menu-->
+        <!-- /li sub menu-->
+    </ul>
+
+
+
+</li>
+
+<li>
+    <a href="javascript:;" class="active">
+        <i class="fa fa-university"></i> <span class="title uppercaseOnly">Administrative Reports</span> <i class="icon-arrow"></i>
+    </a>
+    <ul class="sub-menu">
+        <li><a href="@Url.Action("ProductSalesReport","OrganizationReport")"> <i class="fa fa-line-chart"></i> Sales Report</a></li>
+        <li><a href="@Url.Action( "PremiunCollection","OrganizationReport")"> <i class="fa fa-line-chart"></i> Premium Collection</a></li>
+        <li><a href="@Url.Action( "UserTransaction" ,"OrganizationReport")"> <i class="fa fa-line-chart"></i> User Transaction</a></li>
+
+        <li><a href="@Url.Action( "PolicyProductReport","OrganizationReport")"> <i class="fa fa-line-chart"></i>  Product Report</a></li>
+        <li><a href="@Url.Action("PolicyOnhold","OrganizationReport")"> <i class="fa fa-line-chart"></i> Policy On Hold</a></li>
+
+
+    </ul>
+</li>
+<li>
+    <a href="javascript:;" class="active">
+        <i class="fa fa-university"></i> <span class="title uppercaseOnly">MIS Reports</span> <i class="icon-arrow"></i>
+    </a>
+    <ul class="sub-menu">
+        <li><a href="@Url.Action("ProductSalesReport","OrganizationReport")"> <i class="fa fa-line-chart"></i> Custom Report 1</a></li>
+        <li><a href="@Url.Action( "PremiunCollection","OrganizationReport")"> <i class="fa fa-line-chart"></i> Custom Report 2</a></li>
+        <li><a href="@Url.Action( "UserTransaction" ,"OrganizationReport")"> <i class="fa fa-line-chart"></i> Custom Report 3</a></li>
+
+        <li><a href="@Url.Action( "PolicyProductReport","OrganizationReport")"> <i class="fa fa-line-chart"></i>  Custom Report 4</a></li>
+        <li><a href="@Url.Action("PolicyOnhold","OrganizationReport")"> <i class="fa fa-line-chart"></i> Policy On Hold</a></li>
+
+
+    </ul>
+</li>
+<li>
+    <a href="javascript:; " class="active">
+        <i class="fa fa-university"></i> <span class="title uppercaseOnly"> Agent Report</span> <i class="icon-arrow"></i>
+    </a>
+    <ul class="sub-menu">
+        <li>
+            <a href="javascript:;" class="active">
+                <i class="fa fa-university"></i> <span class="title uppercaseOnly">Sub Agent</span> <i class="icon-arrow"></i>
+            </a>
+            <ul class="sub-menu">
+                <li><a href="@Url.Action("ProductSalesReport","SubAgentReport")"><i class="fa fa-line-chart"></i> Sales Report</a></li>
+                <li><a href="@Url.Action( "PremiunCollection","SubAgentReport")"><i class="fa fa-line-chart"></i> Premium Collection</a></li>
+                <li><a href="@Url.Action( "UserTransaction" ,"SubAgentReport")"><i class="fa fa-line-chart"></i> User Transaction</a></li>
+
+                <li><a href="@Url.Action( "PolicyProductReport","SubAgentReport")"><i class="fa fa-line-chart"></i> Product Report</a></li>
+                <li><a href="@Url.Action("PolicyOnhold","SubAgentReport")"><i class="fa fa-line-chart"></i> Policy On Hold</a></li>
+
+
+            </ul>
+        </li>
+       
+      
+        <!-- /li sub menu-->
+        <!-- /li sub menu-->
+    </ul>
+
+
+
+</li>
+@if (Admin == true|| orgAdmin==true)
+{
+
+    <li>
+        <a href="javascript:;" class="active">
+            <i class="fa fa-university"></i> <span class="title uppercaseOnly">Roles List</span> <i class="icon-arrow"></i>
+        </a>
+        <ul class="sub-menu">
+            <li><a href="@Url.Action("Index", "RolePermission")"> <i class="fa fa-line-chart"></i> Roles</a></li>
+
+
+
+        </ul>
+
+    </li>
+}
+<li>
+    <a href="/Account/LogOff" class="active">
+        <i class="fa fa-university"></i> <span class="title uppercaseOnly">Log Out</span> <i class="icon-arrow"></i>
+    </a>
+
+</li>
+@*<li>
+        <a href="javascript:;" class="active">
+            <i class="fa fa-university"></i> <span class="title uppercaseOnly">Vendor</span> <i class="icon-arrow"></i>
+        </a>
+        <ul class="sub-menu">
+            <li><a href="@Url.Action("ProductSalesReport","Vendor")">Sales Report</a></li>
+            <li><a href="@Url.Action( "PremiunCollection","Vendor")">Premium Collection</a></li>
+            <li><a href="@Url.Action( "UserTransaction" ,"Vendor")">User Transaction</a></li>
+
+            <li><a href="@Url.Action( "PolicyProductReport","Vendor")">Policy Product Report</a></li>
+            <li><a href="@Url.Action("PolicyOnhold","Vendor")">Policy On Hold</a></li>
+
+
+        </ul>
+        <ul></ul>
+    </li>*@
+
+
+
+
+@*<li>
+        <a href="javascript:;" class="active">
+            <i class="fa fa-th-large"></i> <span class="title uppercaseOnly">Member Dropout</span> <i class="icon-arrow"></i>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="@Url.Action("JournalVoucher", "VoucherSummery"">KYC Entry</a></li>
+                                    <li><a href="@Url.Action("ReceiveVoucher", "VoucherSummery"">Account Opne</a></li>
+                                    <li><a href=" @Url.Action("PaymentVoucher", "VoucherSummery"">Member Dropout</a></li>
+            <li>
+                <a href="@Url.Action("UnapprovedVoucherReport", "VoucherSummery"">Account Close</a></li>
+                                    <li><a href=" @Url.Action("UnapprovedVoucherReport", "VoucherSummery"">Transfer Center</a></li>
+        </ul>
+    </li>*@
+
+
+
+

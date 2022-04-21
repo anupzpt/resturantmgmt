@@ -1,0 +1,12 @@
+﻿@model DMS.UI.ViewModels.ApplicationRoleVM
+@Html.HiddenFor(x => x.Name)
+<div class="" id="roleMenu">
+    <div id="treeview_container" class="hummingbird-treeview well h-scroll-large">
+        <ul id="treeview" class="hummingbird-base">
+            @if (Model.menuListVm.Count > 0)
+            {
+                Html.RenderPartial("~/Views/Menu/EditorTemplate/DisplayTreeMenuPartial.cshtml", Model.menuListVm);
+            }
+        </ul>
+    </div>
+</div>

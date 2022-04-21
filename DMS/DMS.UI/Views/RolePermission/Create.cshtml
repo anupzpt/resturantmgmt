@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1 class="upper">Role<small>List</small> </h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="toolbar-tools pull-right">
+                <!-- start: TOP NAVIGATION MENU -->
+                <ul class="nav navbar-right">
+                    <!-- start: TO-DO DROPDOWN -->
+                    <li class="back">
+                        <a href="@Url.Action("Index")">
+                            <i class="fa fa-chevron-left"></i> BACK
+                        </a>
+                    </li>
+                </ul>
+                <!-- end: TOP NAVIGATION MENU -->
+            </div>
+        </div>
+    </div>
+    @Html.Raw(FlashBag.showMessage())
+    <div class="row">
+        <div class="col-md-12">
+            <!-- start: FORM VALIDATION 1 PANEL -->
+            <div class="panel panel-white">
+
+
+                <div class="panel-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal">
+                            <div class="row form-group">
+                                <div class="col-sm-3">Role Name</div>
+                                <div class="col-sm-3">
+                                    <input type="text" name="RoleName" value="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-sm-3">&nbsp;</div>
+                                <div class="col-sm-3">
+                                    <button class="btn btn-success" type="submit">
+                                        <i class="fa fa-check"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

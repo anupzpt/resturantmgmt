@@ -1,0 +1,333 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/bootstrap/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/font-awesome/css/font-awesome.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/iCheck/skins/minimal/_all.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/styles.css")">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/animate.css/animate.min.css")">
+    <!-- end: MAIN CSS -->
+    <!-- start: CSS REQUIRED FOR SUBVIEW CONTENTS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/owl-carousel/owl-carousel/owl.theme.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/owl-carousel/owl-carousel/owl.transitions.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/summernote/dist/summernote.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/fullcalendar/fullcalendar/fullcalendar.css")">
+    @*<link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/toastr/toastr.min.css")">*@
+
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/bootstrap-select/bootstrap-select.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css")">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/toggle/toggle.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/choosen/chosen.min.css")" />
+    @*  <link rel="stylesheet" href="@Url.Content("~/Scripts/select2/css/select2.min.css")">*@
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/select2/select2.min.css")" />
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/prabhucss.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/datepicker/css/datepicker.css")" />
+
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/NepaliDatePick/nepali.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css")">
+    <link rel="stylesheet" href="~/Content/bootstrap-iconpicker.min.css" />
+    <!-- end: CSS REQUIRED FOR THIS SUBVIEW CONTENTS-->
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <!-- start: CORE CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/styles.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/styles-responsive.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/plugins.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/DataTables/media/css/DT_bootstrap.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/DataTables/media/css/fixedHeader.dataTables.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/jqueryFixedHeader/table-fixed-header.css")">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/themes/theme-style8.css")" type="text/css" id="skin_color">
+    <link rel="stylesheet" href="@Url.Content("~/Content/assets/plugins/summernote/dist/summernote.css")" type="text/css" id="skin_color">
+
+    <link href="~/Content/ModalCss.css" rel="stylesheet" />
+    @* <link rel="stylesheet" href="@Url.Content("~/Content/assets/css/print.css")" type="text/css" media="print">*@
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")" type="text/css">
+
+    @*  <link rel="stylesheet" type="text/css" media="print" href="print.css">*@
+    @Scripts.Render("~/bundles/jQuery")
+    @* @Scripts.Render("~/bundles/migrate")*@
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,200,100,800' rel='stylesheet' type='text/css'>
+
+    <!-- end: CORE CSS -->
+    @*<link rel="shortcut icon" href="favicon.ico" />*@
+    <!---->
+    <style>
+        ul.main-navigation-menu > li > a {
+            background-color: #0061a8;
+        }
+
+        .selected {
+            background-color: green;
+        }
+
+        .bad {
+            background-color: red;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div> 
+        @RenderBody()
+    </div>
+
+
+
+
+
+    @Scripts.Render("~/bundles/IE9")
+
+    <![endif]
+    <!--[if gte IE 9]><!-->
+    <!--<![endif]-->
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/blockUI/jquery.blockUI.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/iCheck/jquery.icheck.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/moment/min/moment.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootbox/bootbox.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery.scrollTo/jquery.scrollTo.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/ScrollToFixed/jquery-scrolltofixed-min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery.appear/jquery.appear.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-cookie/jquery.cookie.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/velocity/jquery.velocity.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/TouchSwipe/jquery.touchSwipe.min.js")"></script>
+    <!-- end: MAIN JAVASCRIPTS -->
+    <!-- start: JAVASCRIPTS REQUIRED FOR SUBVIEW CONTENTS -->
+    <script src="@Url.Content("~/Content/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-mockjax/jquery.mockjax.js")"></script>
+    @*<script src="@Url.Content("~/Content/assets/plugins/toastr/toastr.js")"></script>*@
+
+    @*<script src="@Url.Content("~/Content/assets/plugins/bootstrap-modal/js/bootstrap-modal.js")"></script>
+        <script src="@Url.Content("~/Content/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js")"></script>*@
+
+    <script src="@Url.Content("~/Content/assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootstrap-switch/dist/js/bootstrap-switch.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootstrap-select/bootstrap-select.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/DataTables/media/js/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/DataTables/media/js/dataTables.fixedHeader.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/toggle/toggle.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/truncate/jquery.truncate.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootstrap-daterangepicker/daterangepicker.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/choosen/chosen.jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/NepaliDatePick/nepali.datepicker.v2.1.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/ckeditor/ckeditor.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/ckeditor/adapters/jquery.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/summernote/dist/summernote.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/jqueryFixedHeader/table-fixed-header.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/nvd3/lib/d3.v3.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/nvd3/nv.d3.min.js")"></script>
+
+
+    <script src="~/Content/assets/plugins/select2/select2helper.js"></script>
+    <script src="~/Content/assets/plugins/select2/select2.min.js"></script>
+    <script src="~/Content/assets/plugins/select2/en.js"></script>
+    @*  <script src="@Url.Content("~/Scripts/select2/js/select2.min.js")"></script>*@
+    <script src="@Url.Content("~/Scripts/form-wizard.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.smartWizard.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/table-data.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/tableExport/tableExport.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/tableExport/jquery.base64.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/tableExport/html2canvas.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/sweetalert/lib/sweet-alert.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/tableExport/jspdf/libs/sprintf.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/tableExport/jspdf/jspdf.js")"></script>
+    <script src="@Url.Content("~/Content/assets/plugins/tableExport/jspdf/libs/base64.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/table-export.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/ui-modals.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/main.js")"></script>
+    <script src="@Url.Content("~/Content/assets/js/jquery.searchable-1.0.0.min.js")"></script>
+
+    <!-- end: CORE JAVASCRIPTS  -->
+    <!--DMS-->
+    <link href="~/Content/dropzone.css" rel="stylesheet" />
+    <script src="~/Scripts/DMS/Miscellaneous.js"></script>
+    <script src="~/Scripts/DMS/CAD.js"></script>
+    <script src="~/Scripts/DMS/dropzone.js"></script>
+    <script src="~/Scripts/bootstrap-timepicker.min.js"></script>
+    <script src="~/Scripts/IconPicker/bootstrap-iconpicker.min.js"></script>
+    <script src="~/Scripts/ToasterNotification/jquery.toaster.js"></script>
+    <script src="~/Scripts/TableEdit/jquery.tabledit.js"></script>
+    <script src="~/Scripts/PrintThis/printThis.js"></script>
+    <script src="~/Scripts/DMS/Reports.js"></script>
+    <script src="~/Scripts/nepali.datepicker.v2.2/nepali.datepicker.v2.2.min.js"></script>
+    <script src="~/Scripts/DMS/ImageUpload.js"></script>
+    <script src="~/Scripts/DMS/LoanRequest.js"></script>
+    <script src="~/Scripts/DMS/admin.js"></script>
+    <script>
+        function ReApplyDataTable($selector) {
+            $selector = $selector || '.dataTable';
+            oTable = $($selector).dataTable({
+                "aoColumnDefs": [{
+                    "aTargets": [0]
+                }],
+                "oLanguage": {
+                    "sLengthMenu": "Show _MENU_ Rows",
+                    "sSearch": "",
+                    "oPaginate": {
+                        "sPrevious": "",
+                        "sNext": ""
+                    }
+                },
+                "aaSorting": [[1, 'asc']],
+                // set the initial value
+                "iDisplayLength": 100,
+                //scrollX: true,
+                fixedHeader: true,
+            });
+            $('.dataTables_wrapper .dataTables_filter input').addClass("form-control input-sm").attr("placeholder", "Search");
+        }
+        var oTable;
+        $(document).ready(function () {
+            Main.init();
+            TableExport.init();
+            //UIModals.init();
+            // console.log('init...');
+            ReApplyDataTable();
+
+            $('.nepali-calendar').attr('readonly', 'readonly').nepaliDatePicker({
+
+                format: "yyyy-mm-dd",
+                npdMonth: true,
+                npdYear: true,
+                npdYearCount: 50
+            });
+            applySelect();
+
+            $('#cmdPrint, .cmdPrint').on('click', function (e) {
+                e.preventDefault();
+                window.print();
+            });
+            $('#NepDate').on('mouseover', function (e) {
+                e.preventDefault();
+
+                $("#EngDate").toggle();
+
+            });
+            $('#NepDate').on('mouseout', function (e) {
+                e.preventDefault();
+
+                $("#EngDate").toggle();
+
+            });
+
+
+
+            $('.summernote').each(function () {
+                var _thisNote = $(this);
+                $(this).summernote({
+                    height: 300,
+                    tabsize: 2,
+                    oninit: function () {
+                        if (_thisNote.code() == "" || _thisNote.code().replace(/(<([^>]+)>)/ig, "") == "") {
+                            _thisNote.code(_thisNote.attr("placeholder"));
+                        }
+                    },
+                    onfocus: function (e) {
+                        if (_thisNote.code() == _thisNote.attr("placeholder")) {
+                            _thisNote.code("");
+                        }
+                    },
+                    onblur: function (e) {
+                        if (_thisNote.code() == "" || _thisNote.code().replace(/(<([^>]+)>)/ig, "") == "") {
+                            _thisNote.code(_thisNote.attr("placeholder"));
+                        }
+                    }
+                });
+            });
+
+        });
+
+    </script>
+    <script>
+        $.validator.setDefaults({
+            ignore: ""
+        });
+
+        //for menu
+        $(document).ready(function () {
+            // Code for Current Active Page to open node at left
+
+            var hjref = $(location).attr('href');
+            // console.log("Current Address of Active page" + hjref);
+            var pathname = $(location).attr('pathname');
+            //console.log("Current Path of Active page" + pathname);
+
+            $found = false;
+            $('.sub-menu li a').each(function (e) {
+                var hrefl = $(this).attr('href');
+                if (pathname == hrefl && $found == false) {
+                    $found = true;
+                    $(this).addClass("active");
+
+                    $parent = $(this).parents('li');
+                    $parent = $($parent.get().reverse());
+                    $parent.each(function () {
+                        console.log($(this));
+                        //$(this).find('> a').trigger('click'); //.addClass('open')
+                        $(this).addClass('open').children('ul').slideDown(5, function () {
+                            if (mainNavigation.height() > $(".main-navigation-menu").outerHeight()) {
+                                mainNavigation.scrollTo(0, 5, {
+                                    onAfter: function () {
+                                        if ($body.hasClass("isMobile") == false) {
+                                            mainNavigation.perfectScrollbar('update');
+                                        }
+                                    }
+                                });
+                            } else {
+                                mainNavigation.scrollTo($(this).parent("li"), 5, {
+                                    onAfter: function () {
+                                        if ($body.hasClass("isMobile") == false) {
+                                            mainNavigation.perfectScrollbar('update');
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    })
+                }
+            });
+
+            var openMenu = "@ViewBag.MenuID";
+            console.log(openMenu);
+
+            $('.trigOnLoad').each(function (item, index) {
+                $(this).trigger('click');
+            });
+        });
+        $(document).ready(function () {
+            $('.table-fixed-header').fixedHeader();
+        });
+
+    </script>
+    <!--DMS-->
+
+</body>
+</html>

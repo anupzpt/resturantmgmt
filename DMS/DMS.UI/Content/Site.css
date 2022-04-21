@@ -1,0 +1,29 @@
+﻿body {
+    /*padding-top: 50px;*/
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.form-group.space .col-md-4 .select2 {
+    width: 100% !important;
+}
+
+.margin-top-2{
+    margin-top:2px !important;
+}
+
+.font-size-100-percent{
+    font-size:100% !important;
+}

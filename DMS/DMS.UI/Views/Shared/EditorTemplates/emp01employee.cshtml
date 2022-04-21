@@ -1,0 +1,97 @@
+﻿@model DMS.DAL.DatabaseContext.emp01employee
+@{
+    ViewBag.Title = "emp01employee";
+}
+<div class="panel panel-default">
+    <div class="panel panel-heading">Employee</div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row form-group">
+                @Html.LabelFor(model => model.emp01code, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.emp01code, new { htmlAttributes = new { @class = "form-control"} })
+                    @Html.ValidationMessageFor(model => model.emp01code, "", new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.emp01des01uin, "Designation", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.DropDownList("emp01des01uin", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.emp01des01uin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row form-group">
+                @Html.LabelFor(model => model.emp01dep01uin, "Department", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.DropDownList("emp01dep01uin", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.emp01dep01uin, "", new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.emp01lvl01uin, "Level", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.DropDownList("emp01lvl01uin", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.emp01lvl01uin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row form-group">
+                @Html.LabelFor(model => model.emp01bra01uin, "Branch", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.DropDownList("emp01bra01uin", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.emp01bra01uin, "", new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.emp01name, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.emp01name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.emp01name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="row form-group">
+                @Html.LabelFor(model => model.emp01join_date_eng, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.emp01join_date_eng, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                    @Html.ValidationMessageFor(model => model.emp01join_date_eng, "", new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.emp01address, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.emp01address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.emp01address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row form-group">
+                @Html.LabelFor(model => model.emp01email, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.emp01email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.emp01email, "", new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.emp01mobile, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.emp01mobile, new { htmlAttributes = new { @class = "form-control", @maxlength="10", @title="Max Length of cell is 10" } })
+                    @Html.ValidationMessageFor(model => model.emp01mobile, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row form-group">
+                @Html.LabelFor(model => model.emp01status, htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    <input type="checkbox" data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger" name="emp01status" value="true" form-control @(Model != null && !Model.emp01status ? "" : "checked")>
+                    @Html.ValidationMessageFor(model => model.emp01status, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-offset-2 col-md-2 pull-right">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+

@@ -1,0 +1,11 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_LayoutError.cshtml";
+}
+<div class="container">
+    <h3>Error Occured while processing Records. Please check error log for error details.</h3>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            @Html.Raw(FlashBag.showMessage())
+        </div>
+    </div>
+</div>

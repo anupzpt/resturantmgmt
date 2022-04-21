@@ -1,0 +1,74 @@
+﻿@using DMS.ViewModels;
+@model DMS.DAL.StaticHelper.SystemInfoForSession
+@{
+    VMConnectionInfo Conn1 = ViewBag.Conn1;
+    VMConnectionInfo Conn2 = ViewBag.Conn2;
+}
+<div class="toolbar row">
+    <div class="col-sm-6 hidden-xs">
+        <div class="page-header">
+            <h1>
+                My Connection info
+            </h1>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+
+        <div class="toolbar-tools pull-right">
+            <ul class="nav navbar-right">
+                <li class="back">
+                    <a href="@Url.Action("Index")">
+                        <i class="fa fa-chevron-left"></i> BACK
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="row">
+        <div class="col-md-3">Conn1:</div>
+        <div class="col-md-3">Identity</div>
+        <div class="col-md-3">Server:</div>
+        <div class="col-md-3">@(Conn1.ServerName)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Database:</div>
+        <div class="col-md-3">@(Conn1.DatabaseName)</div>
+        <div class="col-md-3">String:</div>
+        <div class="col-md-3">@(Conn1.UserName)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Conn2:</div>
+        <div class="col-md-3">Core</div>
+        <div class="col-md-3">Server:</div>
+        <div class="col-md-3">@(Conn2.ServerName)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Database:</div>
+        <div class="col-md-3">@(Conn2.DatabaseName)</div>
+        @*<div class="col-md-3">String:</div>
+        <div class="col-md-3">@(Conn2.UserName)</div>*@
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">Employee ID:</div>
+        <div class="col-md-3">@(Model.EmployeeId)</div>
+        <div class="col-md-3">Emp Name</div>
+        <div class="col-md-3">@(Model.EmployeeName)</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">Branch ID:</div>
+        <div class="col-md-3">@(Model.BranchId)</div>
+        <div class="col-md-3">Branch Name</div>
+        <div class="col-md-3">@(Model.BranchName)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Role ID:</div>
+        <div class="col-md-3">@(Model.RoleId)</div>
+        <div class="col-md-3">Role Names:</div>
+        <div class="col-md-3">@(string.Join(",", Model.RoleInfoEnum))</div>
+    </div>
+
+</div>

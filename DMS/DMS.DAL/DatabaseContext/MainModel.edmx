@@ -1,0 +1,713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BIT4thSemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bra01branches">
+          <Key>
+            <PropertyRef Name="bra01uin" />
+          </Key>
+          <Property Name="bra01uin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bra01name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="bra01address" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="bra01telephone" Type="nvarchar" MaxLength="255" />
+          <Property Name="bra01status" Type="bit" Nullable="false" />
+          <Property Name="bra01deleted" Type="bit" Nullable="false" />
+          <Property Name="bra01code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="bra01created_by" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="bra01created_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="bra01created_date_eng" Type="datetime" Nullable="false" />
+          <Property Name="bra01created_date_nep" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="bra01updated_by" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="bra01updated_date_eng" Type="datetime" Nullable="false" />
+          <Property Name="bra01updated_date_nep" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cfg01configurations">
+          <Key>
+            <PropertyRef Name="cfg01module" />
+            <PropertyRef Name="cfg01key" />
+          </Key>
+          <Property Name="cfg01uin" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="cfg01module" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="cfg01key" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="cfg01value" Type="nvarchar" MaxLength="255" />
+          <Property Name="cfg01created_date" Type="datetime" Nullable="false" />
+          <Property Name="cfg01created_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="cfg01updated_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="cfg01updated_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dep01department">
+          <Key>
+            <PropertyRef Name="dep01uin" />
+          </Key>
+          <Property Name="dep01uin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dep01title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="dep01code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dep01status" Type="bit" Nullable="false" />
+          <Property Name="dep01deleted" Type="bit" Nullable="false" />
+          <Property Name="dep01updated_by" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="dep01updated_date_eng" Type="datetime" Nullable="false" />
+          <Property Name="dep01updated_date_nep" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="dep01created_by" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="dep01created_date_eng" Type="datetime" Nullable="false" />
+          <Property Name="dep01created_date_nep" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="des01designations">
+          <Key>
+            <PropertyRef Name="des01uin" />
+          </Key>
+          <Property Name="des01uin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="des01title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="des01description" Type="nvarchar" MaxLength="255" />
+          <Property Name="des01status" Type="bit" Nullable="false" />
+          <Property Name="des01deleted" Type="bit" Nullable="false" />
+          <Property Name="des01created_by" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="des01created_date_nep" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="des01created_date_eng" Type="datetime" Nullable="false" />
+          <Property Name="des01updated_by" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="des01updated_date_nep" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="des01updated_date_eng" Type="datetime" Nullable="false" />
+          <Property Name="des01code" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="emp01employee">
+          <Key>
+            <PropertyRef Name="emp01uin" />
+          </Key>
+          <Property Name="emp01uin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp01code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="emp01des01uin" Type="int" Nullable="false" />
+          <Property Name="emp01dep01uin" Type="int" Nullable="false" />
+          <Property Name="emp01lvl01uin" Type="int" Nullable="false" />
+          <Property Name="emp01bra01uin" Type="int" Nullable="false" />
+          <Property Name="emp01name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="emp01join_date_nep" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="emp01join_date_eng" Type="datetime" Nullable="false" />
+          <Property Name="emp01address" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="emp01email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="emp01mobile" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="emp01status" Type="bit" Nullable="false" />
+          <Property Name="emp01deleted" Type="bit" Nullable="false" />
+          <Property Name="emp01created_by" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="emp01created_date_eng" Type="datetime" Nullable="false" />
+          <Property Name="emp01created_date_nep" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="emp01updated_by" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="emp01updated_date_nep" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="emp01update_date_eng" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lvl01employee_levels">
+          <Key>
+            <PropertyRef Name="lvl01uin" />
+          </Key>
+          <Property Name="lvl01uin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lvl01title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="lvl01description" Type="nvarchar" MaxLength="255" />
+          <Property Name="lvl01code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lvl01status" Type="bit" Nullable="false" />
+          <Property Name="lvl01deleted" Type="bit" Nullable="false" />
+          <Property Name="lvl01created_by" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="lvl01created_date_nep" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="lvl01created_date_eng" Type="datetime" Nullable="false" />
+          <Property Name="lvl01updated_by" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="lvl01updated_date_nep" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="lvl01updated_date_eng" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserCodes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="requested_date" Type="datetime" Nullable="false" />
+          <Property Name="valid_till_date" Type="datetime" Nullable="false" />
+          <Property Name="ip" Type="nvarchar" MaxLength="20" />
+          <Property Name="code" Type="bigint" Nullable="false" />
+          <Property Name="CodeUsed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usr05users">
+          <Key>
+            <PropertyRef Name="usr05userId" />
+          </Key>
+          <Property Name="usr05userId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="usr05bra01uin" Type="int" Nullable="false" />
+          <Property Name="usr05type" Type="tinyint" Nullable="false" />
+          <Property Name="usr05status" Type="bit" Nullable="false" />
+          <Property Name="usr05deleted" Type="bit" Nullable="false" />
+          <Property Name="usr05created_date" Type="datetime" Nullable="false" />
+          <Property Name="usr05created_by" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="usr05updated_date" Type="datetime" Nullable="false" />
+          <Property Name="usr05updated_by" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="usr05emp01uin" Type="int" />
+          <Property Name="usr05can_view_all_branch" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_emp01employee_bra01branches">
+          <End Role="bra01branches" Type="Self.bra01branches" Multiplicity="1" />
+          <End Role="emp01employee" Type="Self.emp01employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bra01branches">
+              <PropertyRef Name="bra01uin" />
+            </Principal>
+            <Dependent Role="emp01employee">
+              <PropertyRef Name="emp01bra01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_emp01employee_dep01department">
+          <End Role="dep01department" Type="Self.dep01department" Multiplicity="1" />
+          <End Role="emp01employee" Type="Self.emp01employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dep01department">
+              <PropertyRef Name="dep01uin" />
+            </Principal>
+            <Dependent Role="emp01employee">
+              <PropertyRef Name="emp01dep01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_emp01employee_des01designations">
+          <End Role="des01designations" Type="Self.des01designations" Multiplicity="1" />
+          <End Role="emp01employee" Type="Self.emp01employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="des01designations">
+              <PropertyRef Name="des01uin" />
+            </Principal>
+            <Dependent Role="emp01employee">
+              <PropertyRef Name="emp01des01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_emp01employee_lvl01employee_levels">
+          <End Role="lvl01employee_levels" Type="Self.lvl01employee_levels" Multiplicity="1" />
+          <End Role="emp01employee" Type="Self.emp01employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lvl01employee_levels">
+              <PropertyRef Name="lvl01uin" />
+            </Principal>
+            <Dependent Role="emp01employee">
+              <PropertyRef Name="emp01lvl01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usr05users_bra01branches">
+          <End Role="bra01branches" Type="Self.bra01branches" Multiplicity="1" />
+          <End Role="usr05users" Type="Self.usr05users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bra01branches">
+              <PropertyRef Name="bra01uin" />
+            </Principal>
+            <Dependent Role="usr05users">
+              <PropertyRef Name="usr05bra01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usr05users_emp01employee">
+          <End Role="emp01employee" Type="Self.emp01employee" Multiplicity="0..1" />
+          <End Role="usr05users" Type="Self.usr05users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="emp01employee">
+              <PropertyRef Name="emp01uin" />
+            </Principal>
+            <Dependent Role="usr05users">
+              <PropertyRef Name="usr05emp01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BIT4thSemModelStoreContainer">
+          <EntitySet Name="bra01branches" EntityType="Self.bra01branches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cfg01configurations" EntityType="Self.cfg01configurations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dep01department" EntityType="Self.dep01department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="des01designations" EntityType="Self.des01designations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emp01employee" EntityType="Self.emp01employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lvl01employee_levels" EntityType="Self.lvl01employee_levels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_employee" EntityType="Self.tbl_employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCodes" EntityType="Self.UserCodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usr05users" EntityType="Self.usr05users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_emp01employee_bra01branches" Association="Self.FK_emp01employee_bra01branches">
+            <End Role="bra01branches" EntitySet="bra01branches" />
+            <End Role="emp01employee" EntitySet="emp01employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_emp01employee_dep01department" Association="Self.FK_emp01employee_dep01department">
+            <End Role="dep01department" EntitySet="dep01department" />
+            <End Role="emp01employee" EntitySet="emp01employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_emp01employee_des01designations" Association="Self.FK_emp01employee_des01designations">
+            <End Role="des01designations" EntitySet="des01designations" />
+            <End Role="emp01employee" EntitySet="emp01employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_emp01employee_lvl01employee_levels" Association="Self.FK_emp01employee_lvl01employee_levels">
+            <End Role="lvl01employee_levels" EntitySet="lvl01employee_levels" />
+            <End Role="emp01employee" EntitySet="emp01employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usr05users_bra01branches" Association="Self.FK_usr05users_bra01branches">
+            <End Role="bra01branches" EntitySet="bra01branches" />
+            <End Role="usr05users" EntitySet="usr05users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usr05users_emp01employee" Association="Self.FK_usr05users_emp01employee">
+            <End Role="emp01employee" EntitySet="emp01employee" />
+            <End Role="usr05users" EntitySet="usr05users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BIT4thSemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MainEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bra01branches" EntityType="BIT4thSemModel.bra01branches" />
+          <EntitySet Name="cfg01configurations" EntityType="BIT4thSemModel.cfg01configurations" />
+          <EntitySet Name="dep01department" EntityType="BIT4thSemModel.dep01department" />
+          <EntitySet Name="des01designations" EntityType="BIT4thSemModel.des01designations" />
+          <EntitySet Name="emp01employee" EntityType="BIT4thSemModel.emp01employee" />
+          <EntitySet Name="lvl01employee_levels" EntityType="BIT4thSemModel.lvl01employee_levels" />
+          <EntitySet Name="tbl_employee" EntityType="BIT4thSemModel.tbl_employee" />
+          <EntitySet Name="UserCodes" EntityType="BIT4thSemModel.UserCode" />
+          <EntitySet Name="usr05users" EntityType="BIT4thSemModel.usr05users" />
+          <AssociationSet Name="FK_emp01employee_bra01branches" Association="BIT4thSemModel.FK_emp01employee_bra01branches">
+            <End Role="bra01branches" EntitySet="bra01branches" />
+            <End Role="emp01employee" EntitySet="emp01employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usr05users_bra01branches" Association="BIT4thSemModel.FK_usr05users_bra01branches">
+            <End Role="bra01branches" EntitySet="bra01branches" />
+            <End Role="usr05users" EntitySet="usr05users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_emp01employee_dep01department" Association="BIT4thSemModel.FK_emp01employee_dep01department">
+            <End Role="dep01department" EntitySet="dep01department" />
+            <End Role="emp01employee" EntitySet="emp01employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_emp01employee_des01designations" Association="BIT4thSemModel.FK_emp01employee_des01designations">
+            <End Role="des01designations" EntitySet="des01designations" />
+            <End Role="emp01employee" EntitySet="emp01employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_emp01employee_lvl01employee_levels" Association="BIT4thSemModel.FK_emp01employee_lvl01employee_levels">
+            <End Role="lvl01employee_levels" EntitySet="lvl01employee_levels" />
+            <End Role="emp01employee" EntitySet="emp01employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usr05users_emp01employee" Association="BIT4thSemModel.FK_usr05users_emp01employee">
+            <End Role="emp01employee" EntitySet="emp01employee" />
+            <End Role="usr05users" EntitySet="usr05users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="bra01branches">
+          <Key>
+            <PropertyRef Name="bra01uin" />
+          </Key>
+          <Property Name="bra01uin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bra01name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="bra01address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="bra01telephone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="bra01status" Type="Boolean" Nullable="false" />
+          <Property Name="bra01deleted" Type="Boolean" Nullable="false" />
+          <Property Name="bra01code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="bra01created_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="bra01created_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="bra01created_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="bra01created_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="bra01updated_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="bra01updated_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="bra01updated_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="emp01employee" Relationship="BIT4thSemModel.FK_emp01employee_bra01branches" FromRole="bra01branches" ToRole="emp01employee" />
+          <NavigationProperty Name="usr05users" Relationship="BIT4thSemModel.FK_usr05users_bra01branches" FromRole="bra01branches" ToRole="usr05users" />
+        </EntityType>
+        <EntityType Name="cfg01configurations">
+          <Key>
+            <PropertyRef Name="cfg01module" />
+            <PropertyRef Name="cfg01key" />
+          </Key>
+          <Property Name="cfg01uin" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cfg01module" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cfg01key" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cfg01value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cfg01created_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cfg01created_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cfg01updated_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="cfg01updated_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="dep01department">
+          <Key>
+            <PropertyRef Name="dep01uin" />
+          </Key>
+          <Property Name="dep01uin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dep01title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="dep01code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dep01status" Type="Boolean" Nullable="false" />
+          <Property Name="dep01deleted" Type="Boolean" Nullable="false" />
+          <Property Name="dep01updated_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dep01updated_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dep01updated_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="dep01created_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dep01created_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dep01created_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="emp01employee" Relationship="BIT4thSemModel.FK_emp01employee_dep01department" FromRole="dep01department" ToRole="emp01employee" />
+        </EntityType>
+        <EntityType Name="des01designations">
+          <Key>
+            <PropertyRef Name="des01uin" />
+          </Key>
+          <Property Name="des01uin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="des01title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="des01description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="des01status" Type="Boolean" Nullable="false" />
+          <Property Name="des01deleted" Type="Boolean" Nullable="false" />
+          <Property Name="des01created_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="des01created_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="des01created_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="des01updated_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="des01updated_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="des01updated_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="des01code" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="emp01employee" Relationship="BIT4thSemModel.FK_emp01employee_des01designations" FromRole="des01designations" ToRole="emp01employee" />
+        </EntityType>
+        <EntityType Name="emp01employee">
+          <Key>
+            <PropertyRef Name="emp01uin" />
+          </Key>
+          <Property Name="emp01uin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp01code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emp01des01uin" Type="Int32" Nullable="false" />
+          <Property Name="emp01dep01uin" Type="Int32" Nullable="false" />
+          <Property Name="emp01lvl01uin" Type="Int32" Nullable="false" />
+          <Property Name="emp01bra01uin" Type="Int32" Nullable="false" />
+          <Property Name="emp01name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="emp01join_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="emp01join_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="emp01address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="emp01email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="emp01mobile" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="emp01status" Type="Boolean" Nullable="false" />
+          <Property Name="emp01deleted" Type="Boolean" Nullable="false" />
+          <Property Name="emp01created_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="emp01created_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="emp01created_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="emp01updated_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="emp01updated_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="emp01update_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="bra01branches" Relationship="BIT4thSemModel.FK_emp01employee_bra01branches" FromRole="emp01employee" ToRole="bra01branches" />
+          <NavigationProperty Name="dep01department" Relationship="BIT4thSemModel.FK_emp01employee_dep01department" FromRole="emp01employee" ToRole="dep01department" />
+          <NavigationProperty Name="des01designations" Relationship="BIT4thSemModel.FK_emp01employee_des01designations" FromRole="emp01employee" ToRole="des01designations" />
+          <NavigationProperty Name="lvl01employee_levels" Relationship="BIT4thSemModel.FK_emp01employee_lvl01employee_levels" FromRole="emp01employee" ToRole="lvl01employee_levels" />
+          <NavigationProperty Name="usr05users" Relationship="BIT4thSemModel.FK_usr05users_emp01employee" FromRole="emp01employee" ToRole="usr05users" />
+        </EntityType>
+        <EntityType Name="lvl01employee_levels">
+          <Key>
+            <PropertyRef Name="lvl01uin" />
+          </Key>
+          <Property Name="lvl01uin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lvl01title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="lvl01description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="lvl01code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lvl01status" Type="Boolean" Nullable="false" />
+          <Property Name="lvl01deleted" Type="Boolean" Nullable="false" />
+          <Property Name="lvl01created_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lvl01created_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="lvl01created_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lvl01updated_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lvl01updated_date_nep" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="lvl01updated_date_eng" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="emp01employee" Relationship="BIT4thSemModel.FK_emp01employee_lvl01employee_levels" FromRole="lvl01employee_levels" ToRole="emp01employee" />
+        </EntityType>
+        <EntityType Name="tbl_employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserCode">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="requested_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="valid_till_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="code" Type="Int64" Nullable="false" />
+          <Property Name="CodeUsed" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usr05users">
+          <Key>
+            <PropertyRef Name="usr05userId" />
+          </Key>
+          <Property Name="usr05userId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="usr05bra01uin" Type="Int32" Nullable="false" />
+          <Property Name="usr05type" Type="Byte" Nullable="false" />
+          <Property Name="usr05status" Type="Boolean" Nullable="false" />
+          <Property Name="usr05deleted" Type="Boolean" Nullable="false" />
+          <Property Name="usr05created_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usr05created_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="usr05updated_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usr05updated_by" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="usr05emp01uin" Type="Int32" />
+          <Property Name="usr05can_view_all_branch" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="bra01branches" Relationship="BIT4thSemModel.FK_usr05users_bra01branches" FromRole="usr05users" ToRole="bra01branches" />
+          <NavigationProperty Name="emp01employee" Relationship="BIT4thSemModel.FK_usr05users_emp01employee" FromRole="usr05users" ToRole="emp01employee" />
+        </EntityType>
+        <Association Name="FK_emp01employee_bra01branches">
+          <End Type="BIT4thSemModel.bra01branches" Role="bra01branches" Multiplicity="1" />
+          <End Type="BIT4thSemModel.emp01employee" Role="emp01employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bra01branches">
+              <PropertyRef Name="bra01uin" />
+            </Principal>
+            <Dependent Role="emp01employee">
+              <PropertyRef Name="emp01bra01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usr05users_bra01branches">
+          <End Type="BIT4thSemModel.bra01branches" Role="bra01branches" Multiplicity="1" />
+          <End Type="BIT4thSemModel.usr05users" Role="usr05users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bra01branches">
+              <PropertyRef Name="bra01uin" />
+            </Principal>
+            <Dependent Role="usr05users">
+              <PropertyRef Name="usr05bra01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_emp01employee_dep01department">
+          <End Type="BIT4thSemModel.dep01department" Role="dep01department" Multiplicity="1" />
+          <End Type="BIT4thSemModel.emp01employee" Role="emp01employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dep01department">
+              <PropertyRef Name="dep01uin" />
+            </Principal>
+            <Dependent Role="emp01employee">
+              <PropertyRef Name="emp01dep01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_emp01employee_des01designations">
+          <End Type="BIT4thSemModel.des01designations" Role="des01designations" Multiplicity="1" />
+          <End Type="BIT4thSemModel.emp01employee" Role="emp01employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="des01designations">
+              <PropertyRef Name="des01uin" />
+            </Principal>
+            <Dependent Role="emp01employee">
+              <PropertyRef Name="emp01des01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_emp01employee_lvl01employee_levels">
+          <End Type="BIT4thSemModel.lvl01employee_levels" Role="lvl01employee_levels" Multiplicity="1" />
+          <End Type="BIT4thSemModel.emp01employee" Role="emp01employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lvl01employee_levels">
+              <PropertyRef Name="lvl01uin" />
+            </Principal>
+            <Dependent Role="emp01employee">
+              <PropertyRef Name="emp01lvl01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usr05users_emp01employee">
+          <End Type="BIT4thSemModel.emp01employee" Role="emp01employee" Multiplicity="0..1" />
+          <End Type="BIT4thSemModel.usr05users" Role="usr05users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="emp01employee">
+              <PropertyRef Name="emp01uin" />
+            </Principal>
+            <Dependent Role="usr05users">
+              <PropertyRef Name="usr05emp01uin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BIT4thSemModelStoreContainer" CdmEntityContainer="MainEntities">
+          <EntitySetMapping Name="bra01branches">
+            <EntityTypeMapping TypeName="BIT4thSemModel.bra01branches">
+              <MappingFragment StoreEntitySet="bra01branches">
+                <ScalarProperty Name="bra01updated_date_nep" ColumnName="bra01updated_date_nep" />
+                <ScalarProperty Name="bra01updated_date_eng" ColumnName="bra01updated_date_eng" />
+                <ScalarProperty Name="bra01updated_by" ColumnName="bra01updated_by" />
+                <ScalarProperty Name="bra01created_date_nep" ColumnName="bra01created_date_nep" />
+                <ScalarProperty Name="bra01created_date_eng" ColumnName="bra01created_date_eng" />
+                <ScalarProperty Name="bra01created_name" ColumnName="bra01created_name" />
+                <ScalarProperty Name="bra01created_by" ColumnName="bra01created_by" />
+                <ScalarProperty Name="bra01code" ColumnName="bra01code" />
+                <ScalarProperty Name="bra01deleted" ColumnName="bra01deleted" />
+                <ScalarProperty Name="bra01status" ColumnName="bra01status" />
+                <ScalarProperty Name="bra01telephone" ColumnName="bra01telephone" />
+                <ScalarProperty Name="bra01address" ColumnName="bra01address" />
+                <ScalarProperty Name="bra01name" ColumnName="bra01name" />
+                <ScalarProperty Name="bra01uin" ColumnName="bra01uin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cfg01configurations">
+            <EntityTypeMapping TypeName="BIT4thSemModel.cfg01configurations">
+              <MappingFragment StoreEntitySet="cfg01configurations">
+                <ScalarProperty Name="cfg01updated_date" ColumnName="cfg01updated_date" />
+                <ScalarProperty Name="cfg01updated_name" ColumnName="cfg01updated_name" />
+                <ScalarProperty Name="cfg01created_name" ColumnName="cfg01created_name" />
+                <ScalarProperty Name="cfg01created_date" ColumnName="cfg01created_date" />
+                <ScalarProperty Name="cfg01value" ColumnName="cfg01value" />
+                <ScalarProperty Name="cfg01key" ColumnName="cfg01key" />
+                <ScalarProperty Name="cfg01module" ColumnName="cfg01module" />
+                <ScalarProperty Name="cfg01uin" ColumnName="cfg01uin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dep01department">
+            <EntityTypeMapping TypeName="BIT4thSemModel.dep01department">
+              <MappingFragment StoreEntitySet="dep01department">
+                <ScalarProperty Name="dep01created_date_nep" ColumnName="dep01created_date_nep" />
+                <ScalarProperty Name="dep01created_date_eng" ColumnName="dep01created_date_eng" />
+                <ScalarProperty Name="dep01created_by" ColumnName="dep01created_by" />
+                <ScalarProperty Name="dep01updated_date_nep" ColumnName="dep01updated_date_nep" />
+                <ScalarProperty Name="dep01updated_date_eng" ColumnName="dep01updated_date_eng" />
+                <ScalarProperty Name="dep01updated_by" ColumnName="dep01updated_by" />
+                <ScalarProperty Name="dep01deleted" ColumnName="dep01deleted" />
+                <ScalarProperty Name="dep01status" ColumnName="dep01status" />
+                <ScalarProperty Name="dep01code" ColumnName="dep01code" />
+                <ScalarProperty Name="dep01title" ColumnName="dep01title" />
+                <ScalarProperty Name="dep01uin" ColumnName="dep01uin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="des01designations">
+            <EntityTypeMapping TypeName="BIT4thSemModel.des01designations">
+              <MappingFragment StoreEntitySet="des01designations">
+                <ScalarProperty Name="des01code" ColumnName="des01code" />
+                <ScalarProperty Name="des01updated_date_eng" ColumnName="des01updated_date_eng" />
+                <ScalarProperty Name="des01updated_date_nep" ColumnName="des01updated_date_nep" />
+                <ScalarProperty Name="des01updated_by" ColumnName="des01updated_by" />
+                <ScalarProperty Name="des01created_date_eng" ColumnName="des01created_date_eng" />
+                <ScalarProperty Name="des01created_date_nep" ColumnName="des01created_date_nep" />
+                <ScalarProperty Name="des01created_by" ColumnName="des01created_by" />
+                <ScalarProperty Name="des01deleted" ColumnName="des01deleted" />
+                <ScalarProperty Name="des01status" ColumnName="des01status" />
+                <ScalarProperty Name="des01description" ColumnName="des01description" />
+                <ScalarProperty Name="des01title" ColumnName="des01title" />
+                <ScalarProperty Name="des01uin" ColumnName="des01uin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emp01employee">
+            <EntityTypeMapping TypeName="BIT4thSemModel.emp01employee">
+              <MappingFragment StoreEntitySet="emp01employee">
+                <ScalarProperty Name="emp01update_date_eng" ColumnName="emp01update_date_eng" />
+                <ScalarProperty Name="emp01updated_date_nep" ColumnName="emp01updated_date_nep" />
+                <ScalarProperty Name="emp01updated_by" ColumnName="emp01updated_by" />
+                <ScalarProperty Name="emp01created_date_nep" ColumnName="emp01created_date_nep" />
+                <ScalarProperty Name="emp01created_date_eng" ColumnName="emp01created_date_eng" />
+                <ScalarProperty Name="emp01created_by" ColumnName="emp01created_by" />
+                <ScalarProperty Name="emp01deleted" ColumnName="emp01deleted" />
+                <ScalarProperty Name="emp01status" ColumnName="emp01status" />
+                <ScalarProperty Name="emp01mobile" ColumnName="emp01mobile" />
+                <ScalarProperty Name="emp01email" ColumnName="emp01email" />
+                <ScalarProperty Name="emp01address" ColumnName="emp01address" />
+                <ScalarProperty Name="emp01join_date_eng" ColumnName="emp01join_date_eng" />
+                <ScalarProperty Name="emp01join_date_nep" ColumnName="emp01join_date_nep" />
+                <ScalarProperty Name="emp01name" ColumnName="emp01name" />
+                <ScalarProperty Name="emp01bra01uin" ColumnName="emp01bra01uin" />
+                <ScalarProperty Name="emp01lvl01uin" ColumnName="emp01lvl01uin" />
+                <ScalarProperty Name="emp01dep01uin" ColumnName="emp01dep01uin" />
+                <ScalarProperty Name="emp01des01uin" ColumnName="emp01des01uin" />
+                <ScalarProperty Name="emp01code" ColumnName="emp01code" />
+                <ScalarProperty Name="emp01uin" ColumnName="emp01uin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lvl01employee_levels">
+            <EntityTypeMapping TypeName="BIT4thSemModel.lvl01employee_levels">
+              <MappingFragment StoreEntitySet="lvl01employee_levels">
+                <ScalarProperty Name="lvl01updated_date_eng" ColumnName="lvl01updated_date_eng" />
+                <ScalarProperty Name="lvl01updated_date_nep" ColumnName="lvl01updated_date_nep" />
+                <ScalarProperty Name="lvl01updated_by" ColumnName="lvl01updated_by" />
+                <ScalarProperty Name="lvl01created_date_eng" ColumnName="lvl01created_date_eng" />
+                <ScalarProperty Name="lvl01created_date_nep" ColumnName="lvl01created_date_nep" />
+                <ScalarProperty Name="lvl01created_by" ColumnName="lvl01created_by" />
+                <ScalarProperty Name="lvl01deleted" ColumnName="lvl01deleted" />
+                <ScalarProperty Name="lvl01status" ColumnName="lvl01status" />
+                <ScalarProperty Name="lvl01code" ColumnName="lvl01code" />
+                <ScalarProperty Name="lvl01description" ColumnName="lvl01description" />
+                <ScalarProperty Name="lvl01title" ColumnName="lvl01title" />
+                <ScalarProperty Name="lvl01uin" ColumnName="lvl01uin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_employee">
+            <EntityTypeMapping TypeName="BIT4thSemModel.tbl_employee">
+              <MappingFragment StoreEntitySet="tbl_employee">
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCodes">
+            <EntityTypeMapping TypeName="BIT4thSemModel.UserCode">
+              <MappingFragment StoreEntitySet="UserCodes">
+                <ScalarProperty Name="CodeUsed" ColumnName="CodeUsed" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="valid_till_date" ColumnName="valid_till_date" />
+                <ScalarProperty Name="requested_date" ColumnName="requested_date" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usr05users">
+            <EntityTypeMapping TypeName="BIT4thSemModel.usr05users">
+              <MappingFragment StoreEntitySet="usr05users">
+                <ScalarProperty Name="usr05can_view_all_branch" ColumnName="usr05can_view_all_branch" />
+                <ScalarProperty Name="usr05emp01uin" ColumnName="usr05emp01uin" />
+                <ScalarProperty Name="usr05updated_by" ColumnName="usr05updated_by" />
+                <ScalarProperty Name="usr05updated_date" ColumnName="usr05updated_date" />
+                <ScalarProperty Name="usr05created_by" ColumnName="usr05created_by" />
+                <ScalarProperty Name="usr05created_date" ColumnName="usr05created_date" />
+                <ScalarProperty Name="usr05deleted" ColumnName="usr05deleted" />
+                <ScalarProperty Name="usr05status" ColumnName="usr05status" />
+                <ScalarProperty Name="usr05type" ColumnName="usr05type" />
+                <ScalarProperty Name="usr05bra01uin" ColumnName="usr05bra01uin" />
+                <ScalarProperty Name="usr05userId" ColumnName="usr05userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

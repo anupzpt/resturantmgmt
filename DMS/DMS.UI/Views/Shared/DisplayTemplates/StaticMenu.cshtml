@@ -1,0 +1,286 @@
+﻿<ul class="main-navigation-menu">
+    <li class="active open">
+        <a href="~/Home/Dashboard"><i class="fa fa-home"></i> <span class="title"> Dashboard </span></a>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-cogs"> </i> <span class="title"> Primary Information Setup </span><i class="icon-arrow"></i> </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="~/Branch/Index">
+                    <i class="fa fa-th-large"></i> <span class="title"> Branch </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/BusinessUnit/Index">
+                    <i class="fa fa-briefcase"></i> <span class="title"> Business Unit </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/CadDocumentType/Index">
+                    <i class="fa fa-file"></i><span class="title"> Cad Document Type </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/CadFeeType/Index">
+                    <i class="fa fa-money"></i><span class="title">
+                        Cad Fee Type
+                    </span>
+                </a>
+            </li>
+
+            <li>
+                <a href="~/CustomerDocumentType/Index">
+                    <i class="fa fa-file-invoice"></i><span class="title">
+                        Customer Document type
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Department/Index">
+                    <i class="fa fa-buromobelexperte"></i><span class="title">
+                        Department
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Designation/Index">
+                    <i class="fa fa-portrait"></i><span class="title">
+                        Designation
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/District/Index">
+                    <i class="fa fa-map-marked-alt"></i><span class="title">
+                        District
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/DocumentPhase/Index">
+                    <i class="fa fa-address-card-o "></i><span class="title">
+                        Document Phase
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/DocumentType/Index">
+                    <i class="fa fa-address-card-o "></i><span class="title">
+                        Document Type
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Employee/Index">
+                    <i class="fa "></i><span class="title"> Employee</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/LoanProposalType/Index">
+                    <i class="fa "></i><span class="title"> Loan Proposal Type</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/SectorCode/Index">
+                    <i class="fa "></i><span class="title"> Sector Code</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/SecurityCode/Index">
+                    <i class="fa "></i><span class="title"> Security Code</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-file"> </i> <span class="title">Document Process</span><i class="icon-arrow"></i> </a>
+
+        <ul class="sub-menu">
+
+
+            <li>
+                <a href="~/LoanRequest/Index">
+                    <i class="fa fa-plus-square-o"></i><span class="title"> My Loan Initiation List</span><span style="float:right" class="label label-danger InitiationCount"></span>
+                </a>
+            </li>
+            <li>
+                <a href="~/LoanProcessing/Index">
+                    <i class="fa fa-clock-o"></i><span class="title"> Pending Loan Info </span><span style="float:right" class="label label-danger PendingCount"></span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Reports/GetFileReports">
+                    <i class="fa fa-search"></i><span class="title"> File Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Reports/GetAllProcessingReports">
+                    <i class="fa fa-list-alt"></i><span class="title">  My Loan Processed List</span><span style="float:right" class="label label-danger ApprovedCount"></span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#"><i class="fa fa-check"> </i> <span class="title">Digital signature</span><i class="icon-arrow"></i> </a>
+
+        <ul class="sub-menu">
+            <li>
+                <a href="@Url.Action("Create", "EmployeeDigitalSignature")">
+                    <i class="fa fa-lastfm-square"></i><span class="title"> Digital Signature Assignment</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "EmployeeDigitalSignature")">
+                    <i class="fa fa-list"></i> <span class="title">Digital Signature User List</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("ExpiryList", "EmployeeDigitalSignature")">
+                    <i class="fa fa-times-circle"></i><span class="title"> Digital Signature Expiry List </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-flag-checkered"> </i> <span class="title">Task</span><i class="icon-arrow"></i> </a>
+
+        <ul class="sub-menu">
+            <li>
+                <a href="@Url.Action("Index", "TaskInfo")">
+                    <i class="fa fa-list"></i> <span class="title"> My Created Task List</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="@Url.Action("MyAssignedTaskList", "TaskInfo")">
+                    <i class="fa fa-list"></i> <span class="title"> My Assigned Task List</span>
+                </a>
+
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#"><i class="fa fa-flag-checkered"> </i> <span class="title">MIS Reports</span><i class="icon-arrow"></i> </a>
+
+        <ul class="sub-menu">
+            <li>
+                <a href="~/Reports/PendingLoanReports">
+                    <i class="fa fa-star-half"></i> <span class="title"> Pending Loan Details Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Reports/ApprovedLoanReports">
+                    <i class="fa fa-star"></i> <span class="title"> Approved Loan Details Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Reports/RejectLoanReports">
+                    <i class="fa fa-star-half-o"></i><span class="title"> Reject Loan Details Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Reports/ReturnLoanReports">
+                    <i class="fa fa-star-half-o"></i><span class="title"> Return Loan Details Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Reports/EmployeeListReport">
+                    <i class="fa fa-list"></i><span class="title"> Employee List Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Reports/GetAllProcessingReports">
+                    <i class="fa fa-list"></i><span class="title">Loan Processing Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Reports/CADReports">
+                    <i class="fa fa-list">
+                        <span class="Title">CAD Report</span>
+                    </i>
+                </a>
+            </li>
+
+        </ul>
+    </li>
+
+    <li>
+        <a href="#"><i class="fa fa-user"> </i> <span class="title">Memo Management</span><i class="icon-arrow"></i> </a>
+
+        <ul class="sub-menu">
+            <li>
+                <a href="@Url.Action("Create", "Memo")">
+                    <i class="fa fa-star "></i><span class="title">Create New Memo</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Home")">
+                    <i class="fa fa-star-half "></i> <span class="title">Memo List</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#"><i class="fa fa-desktop"> </i> <span class="title">CAD</span><i class="icon-arrow"></i> </a>
+
+        <ul class="sub-menu">
+            <li>
+                <a href="~/CADTransaction/CADlist">
+                    <i class="fa fa-folder"></i> <span class="title">Approved Loan List</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/CADTransaction/PrimaryInfoList">
+                    <i class="fa fa-folder"></i> <span class="title">CAD Initiated List</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/CADTransaction/CADInfoList">
+                    <i class="fa fa-folder"></i> <span class="title">CAD Pending List</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/CADTransaction/CADApprovedList">
+                    <i class="fa fa-folder"></i> <span class="title">CAD Approved List</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="~/Customer/Index">
+            <i class="fa fa-user"></i><span class="title">
+                Customer
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="~/CustomerBlackList/Index">
+            <i class="fa fa-ban"></i><span class="title">
+                BlackList
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="~/Menu/Index">
+            <i class="fa fa-list"></i><span class="title">
+                Menu
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="~/RolePermission/Index">
+            <i class="fa fa-list"></i><span class="title">
+                Role Permission
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-cogs"> </i> <span class="title"> My Menu </span><i class="icon-arrow"></i> </a>
+        <ul class="sub-menu"></ul>
+    </li>
+</ul>

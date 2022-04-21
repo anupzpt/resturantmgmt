@@ -1,0 +1,164 @@
+﻿@model List<DMS.UI.ViewModels.MenuInfoVM>
+
+
+@{
+    ViewBag.Title = "Menu With Paren :: Edit";
+}
+<!--newDesign########################-->
+<div class="">
+    <!-- start: PAGE HEADER -->
+    <!-- start: TOOLBAR -->
+    <!---->
+    <div class="toolbar row">
+        <div class="col-sm-6 hidden-xs">
+            <div class="page-header">
+                <h1 class="uc"> New Menu</h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <div class="toolbar-tools pull-right">
+                <!-- start: TOP NAVIGATION MENU -->
+                <ul class="nav navbar-right">
+                    <li class="back">
+                        <a href="@Url.Action("Index")">
+                            <i class="fa fa-chevron-left"></i> BACK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- end: TOOLBAR -->
+    <!-- end: PAGE HEADER -->
+    <!-- start: PAGE CONTENT -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- start: FORM VALIDATION 1 PANEL -->
+            <div class="">
+                <div class="panel-body">
+                    <div class="row">
+                        <!--wrapper-->
+                        <!--extra-->
+                        <div class="panel panel-primary">
+                            <div class="panel panel-heading"><h5>Add New Menu</h5></div>
+                            <div class="panel panel-body">
+                                <!--Body-->
+                                <div class="col-md-12">
+
+                                    <!--BODY STARTS-->
+                                    @using (Html.BeginForm())
+                                    {
+                                        <table class="tatable-bordered table-condensed table">
+                                            <thead>
+                                                <tr>
+                                                    <th>S.N.</th>
+                                                    <th>
+                                                        Title
+                                                    </th>
+                                                    <th>Current Menu</th>
+
+                                                    <th>
+                                                        Parent Menu
+                                                    </th>
+                                                    <th>
+                                                        IsActive
+                                                    </th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                @for (int i = 0; i < Model.Count; i++)
+                                                {
+                                                    string ParentMenu = "";
+                                                    if (Model[i].menuListVM.ParentId ==0)
+                                                    {
+                                                        ParentMenu = "Main Parent";
+                                                    }
+                                                    else
+                                                    {
+                                                        var Details = Model.Where(x => x.menuListVM.Id == Model[i].menuListVM.ParentId).FirstOrDefault();
+                                                        if (Details != null)
+                                                        {
+                                                            ParentMenu = Details.menuListVM.Description;
+                                                        }
+                                                        else
+                                                        {
+                                                            ParentMenu = "No Parent";
+                                                        }
+                                                    }
+                                                    <tr>
+                                                        <td>@(i + 1)</td>
+                                                        <td>
+                                                            @Html.HiddenFor(x => Model[i].menuListVM.Id)
+                                                            @if (Model[i].menuListVM.DropDownName != null)
+
+                                                            {
+
+                                                                <span>(@Model[i].menuListVM.Description)</span>;
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>
+                                                                    @if (Model[i].menuListVM.ControllerAction != null)
+                                                                    {
+                                                                    <a href="@Url.Action(Model[i].menuListVM.ControllerAction.ActionName, Model[i].menuListVM.ControllerAction.ControllerName)">
+                                                                        @Html.DisplayFor(x => Model[i].menuListVM.Description)
+                                                                    </a>
+                                                                    }
+                                                                </span>
+                                                            }
+                                                        </td>
+                                                        <td>@ParentMenu</td>
+                                                        <td>@Html.DropDownListFor(x => Model[i].menuListVM.ParentId, Model[i].MenuList, "<--Select Parent-->", htmlAttributes: new { @class = "form-control" })</td>
+                                                        <td>
+                                                            @Html.EditorFor(model => Model[i].menuListVM.IsActive, new { htmlAttributes = new { @class = "checkbox", data_toggle = "toggle", data_on = "Active", data_off = "DeActive" } })
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                        <input type="button" id="SubmitButton" value="Update" class="btn btn-info btnForModal" />
+
+                                        <div class="container">
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header" style="background-color:#ce181f">
+                                                            <button type="button" class="close" style="padding:5px; border-radius:30px 30px;" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title" style="color:white">Are you Sure!</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <p>Do you want to <span id="msg">Submit</span>?</p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" value="Yes" id="ModalSubmitButton" class="btn btn-primary fa fa-check" style="margin:0 30px 0px 0px">Yes</button>
+                                                            <button type="button" value="No" id="No" class="btn btn-danger fa fa-remove" data-dismiss="modal">No</button>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    <!--BODY ENDS-->
+                                </div>
+                                <!--End Body-->
+                            </div>
+                        </div>
+                        <!--wrapper row ends-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--newDesign ends###############-->

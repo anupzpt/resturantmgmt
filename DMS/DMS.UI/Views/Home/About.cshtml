@@ -1,0 +1,221 @@
+﻿@*@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>*@
+
+
+
+@{
+    ViewBag.Title = "CreditFileRecommending";
+}
+
+@*<div class="row">
+
+
+
+    <div style="margin-top:20px;">
+        <nav bar>
+            <h3 align="center">Credit File Recommending/Approving Remarks</h3>
+        </nav>
+        <div class="container">
+            <div class="panel panel-body">
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <div class="row form-group">
+                            <label class="col-md-3">Name:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Name" />
+                            </div>
+                            <label class="col-md-3">Date:</label>
+                            <div class="col-md-3">
+                                <input type="date" placeholder="Date" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Designation:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Designation" />
+                            </div>
+                            <label class="col-md-3">Employee ID:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Employee ID" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Loan Id:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Loan Id" />
+                            </div>
+                            <label class="col-md-3">Department Branch:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Department Branch" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Customer Name:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Customer Name" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Customer ID:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Customer ID" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Business Unit:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Business Unit" />
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3">Comments:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Comments" />
+                            </div>
+                        </div>
+
+                        <table class="table dataTable table-striped table-hover table-bordered">
+                            <tr>
+                                <th><u>From</u></th>
+                                <th><u>To</u></th>
+                                <th><u>Recommender</u></th>
+                                <th><u>Comment</u></th>
+                                <th><u>Action</u></th>
+                                <th><u>Signature</u></th>
+                            </tr>
+                            <tr>
+                                <td class="date"></td>
+                                <td class="date"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>*@
+
+
+
+@*@model DMS.ViewModels.Loan_Request_VM
+
+
+
+@{
+    ViewBag.Title = "CreditFileRecommending";
+}
+
+<div class="row">
+
+
+
+    <div style="margin-top:20px;">
+        <nav bar>
+            <h3 align="center">Credit File Recommending/Approving Remarks</h3>
+        </nav>
+        <div class="container">
+            <div class="panel panel-body">
+                <div class="col-md-12">
+                    <div class="form-horizontal">
+                        <div class="row form-group">
+                            <label class="col-md-3">Name:</label>
+                            <div class="col-md-3">
+                                @Model.Initiator_Emp_VM.Name
+                            </div>
+                            <label class="col-md-3">Date:</label>
+                            <div class="col-md-3">
+                                @Model.Loan_Request_Status_VM_List.FirstOrDefault().Date_Eng
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Designation:</label>
+                            <div class="col-md-3">
+                                @Model.Initiator_Emp_VM.Designation_VM.Title
+                            </div>
+                            <label class="col-md-3">Employee ID:</label>
+                            <div class="col-md-3">
+                                @Model.Initiator_Emp_VM.Id
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Loan Id:</label>
+                            <div class="col-md-3">
+                                @Model.File_Code
+                            </div>
+                            <label class="col-md-3">Department Branch:</label>
+                            <div class="col-md-3">
+                                @Model.Branch_VM.BranchName
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Customer Name:</label>
+                            <div class="col-md-3">
+                                @Model.Customer_Name
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Customer ID:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Customer ID" />
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-3">Business Unit:</label>
+                            <div class="col-md-3">
+                                @Model.Business_Unit_VM.Title
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3">Comments:</label>
+                            <div class="col-md-3">
+                                @Model.Loan_Request_Status_VM_List.FirstOrDefault().Comments
+                            </div>
+                        </div>
+
+                        <table class="table dataTable table-striped table-hover table-bordered">
+                            <tr>
+                                <th><u>From</u></th>
+                                <th><u>To</u></th>
+                                <th><u>Recommender</u></th>
+                                <th><u>Comment</u></th>
+                                <th><u>Action</u></th>
+                                <th><u>Signature</u></th>
+                            </tr>
+
+                            @for (int i = 0; i < Model.Loan_Request_Status_VM_List.Count() - 1; i++)
+                            {
+                                <tr>
+                                    <td class="date">@Model.Loan_Request_Status_VM_List[i].Date_Eng</td>
+                                    <td class="date">@Model.Loan_Request_Status_VM_List[i + 1].Date_Eng</td>
+                                    <td>@Model.Loan_Request_Status_VM_List[i + 1].From_Employee_VM.Name</td>
+                                    <td>@Model.Loan_Request_Status_VM_List[i + 1].Comments</td>
+                                    <td>@Model.Loan_Request_Status_VM_List[i + 1].Status</td>
+                                    <td></td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>*@
+
+
+
+
