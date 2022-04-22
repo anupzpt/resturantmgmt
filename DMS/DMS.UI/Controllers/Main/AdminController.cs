@@ -8,8 +8,9 @@ namespace DMS.Controllers.Main
 {
     public class AdminController : Controller
     {
+        [AllowAnonymous]
         // GET: Admin
-        public ActionResult Admin()
+        public ActionResult Adminindex()
         {
             return View();
         }
